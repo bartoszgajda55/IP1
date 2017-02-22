@@ -9,6 +9,6 @@ package callib.Models;
  *
  * @author Admin
  */
-public class Model {
+public class Book {
     
 }

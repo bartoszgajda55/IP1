@@ -7,11 +7,11 @@ package callib;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import callib.Models.DBConnector;
 
 /**
  *
@@ -41,7 +41,9 @@ public class CalLib extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        //launch(args);
+        DBConnector db = new DBConnector();
+        db.executeStatement("SELECT * FROM users");
     }
     
 }
