@@ -34,7 +34,7 @@ public class DBConnector {
         }
     }
     
-    public ResultSet executeStatement(String SqlQuery) {
+    public ResultSet executeReadOnly(String SqlQuery) {
         Statement stmt = null;
         ResultSet rs = null;
         
