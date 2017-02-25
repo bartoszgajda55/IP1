@@ -13,17 +13,17 @@
         <URL value="@login.css" />
     </stylesheets>
     <children>
-      <Button layoutX="278.0" layoutY="187.0" mnemonicParsing="false" onAction="#login" text="Login" />
-      <Button layoutX="271.0" layoutY="224.0" mnemonicParsing="false" onAction="#register" text="Register" />
-      <TextField fx:id="emailField" layoutX="226.0" layoutY="117.0" />
-      <Label layoutX="137.0" layoutY="21.0" text="Caledonian Library">
+      <Button layoutX="277.0" layoutY="256.0" mnemonicParsing="false" onAction="#login" text="Login" />
+      <Button layoutX="272.0" layoutY="292.0" mnemonicParsing="false" onAction="#register" text="Register" />
+      <TextField fx:id="emailField" layoutX="226.0" layoutY="175.0" />
+      <Label layoutX="138.0" layoutY="73.0" text="Caledonian Library">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <Label layoutX="176.0" layoutY="121.0" text="Email" textAlignment="RIGHT" />
-      <Label layoutX="166.0" layoutY="154.0" text="Password" textAlignment="RIGHT" />
-      <Label fx:id="messageLabel" alignment="CENTER" layoutX="202.0" layoutY="87.0" prefHeight="17.0" prefWidth="200.0" textFill="RED" />
-      <PasswordField fx:id="passwordField" layoutX="227.0" layoutY="150.0" />
+      <Label layoutX="177.0" layoutY="179.0" text="Email" textAlignment="RIGHT" />
+      <Label layoutX="166.0" layoutY="221.0" text="Password" textAlignment="RIGHT" />
+      <Label fx:id="messageLabel" alignment="CENTER" layoutX="202.0" layoutY="137.0" prefHeight="17.0" prefWidth="200.0" textFill="RED" />
+      <PasswordField fx:id="passwordField" layoutX="227.0" layoutY="217.0" />
    </children>
 </AnchorPane>
