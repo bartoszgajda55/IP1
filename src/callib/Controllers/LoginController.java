@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import callib.Models.User;
 
 /**
  * FXML Controller class
@@ -21,6 +22,8 @@ import javafx.scene.control.TextField;
  */
 public class LoginController implements Initializable {
 
+    private User user = User.getInstance();
+    
     @FXML
     private Label messageLabel;
     @FXML
@@ -30,13 +33,17 @@ public class LoginController implements Initializable {
     
     @FXML
     private void login(ActionEvent event) {
-        System.out.println(emailField.getText());
-        System.out.println(passwordField.getText());
+        messageLabel.setText("");
+        if(user.isLoginCorrect(emailField.getText(), passwordField.getText())) {
+            
+        } else {
+            messageLabel.setText("Email or password incorrect!");
+        }
     }
     
     @FXML
     private void register(ActionEvent event) {
-        messageLabel.setText("This is your warning!");
+        messageLabel.setText("Go To Register");
     }
     
     /**

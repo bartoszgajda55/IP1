@@ -23,7 +23,7 @@
       </Label>
       <Label layoutX="176.0" layoutY="121.0" text="Email" textAlignment="RIGHT" />
       <Label layoutX="166.0" layoutY="154.0" text="Password" textAlignment="RIGHT" />
-      <Label fx:id="messageLabel" alignment="CENTER" layoutX="227.0" layoutY="87.0" prefHeight="17.0" prefWidth="149.0" textFill="RED" />
+      <Label fx:id="messageLabel" alignment="CENTER" layoutX="202.0" layoutY="87.0" prefHeight="17.0" prefWidth="200.0" textFill="RED" />
       <PasswordField fx:id="passwordField" layoutX="227.0" layoutY="150.0" />
    </children>
 </AnchorPane>
