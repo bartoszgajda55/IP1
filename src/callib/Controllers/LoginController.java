@@ -28,8 +28,8 @@ import javafx.stage.Stage;
 public class LoginController implements Initializable {
 
     private User user = User.getInstance();
-    Stage stage;
-    Parent root;
+    private Stage stage;
+    private Parent root;
     
     @FXML
     private Label messageLabel;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,8 +8,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.DashboardController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.DashboardController">
     <stylesheets>
-        <URL value="@dashboard.css"/>
+        <URL value="@dashboard.css" />
     </stylesheets>
+   <children>
+      <Label fx:id="label" layoutX="227.0" layoutY="40.0" text="Dashboard">
+         <font>
+            <Font size="72.0" />
+         </font></Label>
+      <Button layoutX="227.0" layoutY="210.0" mnemonicParsing="false" onAction="#information" prefHeight="60.0" prefWidth="80.0" text="Student Information" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+      <Button layoutX="360.0" layoutY="210.0" mnemonicParsing="false" onAction="#borrowed" prefHeight="60.0" prefWidth="80.0" text="Borrowed Books" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+      <Button layoutX="494.0" layoutY="210.0" mnemonicParsing="false" onAction="#requests" prefHeight="60.0" prefWidth="80.0" text="Book Requests" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+      <Button layoutX="227.0" layoutY="300.0" mnemonicParsing="false" onAction="#settings" prefHeight="60.0" prefWidth="80.0" text="Settings" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+      <Button layoutX="360.0" layoutY="300.0" mnemonicParsing="false" onAction="#search" prefHeight="60.0" prefWidth="80.0" text="Search Books" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+      <Button layoutX="494.0" layoutY="300.0" mnemonicParsing="false" onAction="#logout" prefHeight="60.0" prefWidth="80.0" text="Logout" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+   </children>
 </AnchorPane>
