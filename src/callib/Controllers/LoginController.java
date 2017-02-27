@@ -54,8 +54,12 @@ public class LoginController implements Initializable {
     }
     
     @FXML
-    private void register(ActionEvent event) {
-        messageLabel.setText("Go To Register");
+    private void register(ActionEvent event) throws IOException {
+        stage = (Stage) emailField.getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("/callib/Views/Register.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
     /**
