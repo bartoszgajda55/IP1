@@ -27,7 +27,7 @@ public class User {
     
     public boolean isLoginCorrect(String email, String password) {
         try {
-            ResultSet rs = connector.executeReadOnly("SELECT * FROM users WHERE users.email LIKE " + "'" + email + "'");
+            ResultSet rs = connector.executeReadOnly("SELECT password FROM users WHERE users.email LIKE " + "'" + email + "'");
             rs.first();
             return rs.getString("password").equals(password);
         } catch (SQLException ex) {

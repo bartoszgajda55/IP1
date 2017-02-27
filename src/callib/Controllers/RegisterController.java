@@ -15,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -24,10 +26,23 @@ import javafx.stage.Stage;
  */
 public class RegisterController implements Initializable {
 
-    @FXML
-    private Label label;
     private Stage stage;
     private Parent root;
+    
+    @FXML
+    private Label label;
+    @FXML
+    private TextField first_name;
+    @FXML
+    private TextField last_name;
+    @FXML
+    private TextField email;
+    @FXML
+    private TextField course;
+    @FXML
+    private PasswordField password;
+    @FXML
+    private PasswordField r_password;
     @FXML
     private void back(ActionEvent event) throws IOException {
         stage = (Stage) label.getScene().getWindow();
@@ -35,6 +50,10 @@ public class RegisterController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    @FXML
+    private void register(ActionEvent event) {
+        System.out.println(first_name.getText());
     }
     /**
      * Initializes the controller class.
