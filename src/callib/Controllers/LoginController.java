@@ -14,6 +14,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import callib.Models.User;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -23,6 +28,8 @@ import callib.Models.User;
 public class LoginController implements Initializable {
 
     private User user = User.getInstance();
+    Stage stage;
+    Parent root;
     
     @FXML
     private Label messageLabel;
@@ -32,10 +39,15 @@ public class LoginController implements Initializable {
     private PasswordField passwordField;
     
     @FXML
-    private void login(ActionEvent event) {
+    private void login(ActionEvent event) throws IOException {
         messageLabel.setText("");
         if(user.isLoginCorrect(emailField.getText(), passwordField.getText())) {
-            
+            System.out.println("Logged in");
+            stage = (Stage) emailField.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("/callib/Views/Dashboard.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } else {
             messageLabel.setText("Email or password incorrect!");
         }
