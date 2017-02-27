@@ -8,15 +8,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="callib.Controllers.BorrowedController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.BorrowedController">
     <stylesheets>
         <URL value="@borrowed.css" />
     </stylesheets>
    <children>
-      <Label layoutX="267.0" layoutY="40.0" text="Borrwed" textAlignment="CENTER">
+      <Label fx:id="label" layoutX="246.0" layoutY="38.0" text="Borrowed" textAlignment="CENTER">
          <font>
             <Font size="72.0" />
          </font>
       </Label>
+      <Button layoutX="40.0" layoutY="550.0" mnemonicParsing="false" onAction="#back" text="Back" />
    </children>
 </AnchorPane>

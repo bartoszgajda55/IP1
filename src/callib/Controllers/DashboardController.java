@@ -26,10 +26,11 @@ public class DashboardController implements Initializable {
 
     @FXML
     private Label label;
-    private Stage stage = (Stage) label.getScene().getWindow();
+    private Stage stage;
     private Parent root;
     @FXML
     private void information(ActionEvent event) throws IOException {
+        stage = (Stage) label.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("/callib/Views/Information.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -37,6 +38,7 @@ public class DashboardController implements Initializable {
     }
     @FXML
     private void borrowed(ActionEvent event) throws IOException {
+        stage = (Stage) label.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("/callib/Views/Borrowed.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -44,6 +46,7 @@ public class DashboardController implements Initializable {
     }
     @FXML
     private void requests(ActionEvent event) throws IOException {
+        stage = (Stage) label.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("/callib/Views/Requests.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -51,6 +54,7 @@ public class DashboardController implements Initializable {
     }
     @FXML
     private void settings(ActionEvent event) throws IOException {
+        stage = (Stage) label.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("/callib/Views/Settings.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -58,6 +62,7 @@ public class DashboardController implements Initializable {
     }
     @FXML
     private void search(ActionEvent event) throws IOException {
+        stage = (Stage) label.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("/callib/Views/Search.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -65,6 +70,7 @@ public class DashboardController implements Initializable {
     }
     @FXML
     private void logout(ActionEvent event) throws IOException {
+        stage = (Stage) label.getScene().getWindow();
         root = FXMLLoader.load(getClass().getResource("/callib/Views/Login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
