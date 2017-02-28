@@ -5,6 +5,7 @@
  */
 package callib.Controllers;
 
+import callib.Models.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,6 +29,7 @@ public class RegisterController implements Initializable {
 
     private Stage stage;
     private Parent root;
+    private User user = User.getInstance();
     
     @FXML
     private Label label;
@@ -103,12 +105,14 @@ public class RegisterController implements Initializable {
         }
         
         if(isValid) {
-            //Register user
-            stage = (Stage) label.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("/callib/Views/Dashboard.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            if(user.addUser(first_name.getText(), last_name.getText(), email.getText(), password.getText(), course.getText())) {
+                stage = (Stage) label.getScene().getWindow();
+                root = FXMLLoader.load(getClass().getResource("/callib/Views/Dashboard.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
+            
         }
     }
     /**

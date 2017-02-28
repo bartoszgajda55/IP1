@@ -27,12 +27,18 @@ public class User {
     
     public boolean isLoginCorrect(String email, String password) {
         try {
-            ResultSet rs = connector.executeReadOnly("SELECT password FROM users WHERE users.email LIKE " + "'" + email + "'");
+            ResultSet rs = connector.executeSelectStatement("SELECT password FROM users WHERE users.email LIKE '" + email + "'");
             rs.first();
             return rs.getString("password").equals(password);
         } catch (SQLException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+    
+    public boolean addUser(String first_name, String last_name, String email, String password, String course) {
+        //        ResultSet rs = connector.executeStatement("INSERT INTO users (id, first_name, last_name, email, password, course) VALUES"
+        //                + " ('"+first_name+"','"+last_name+"','"+email+"','"+password+"','"+course+"')");
+        return true;
     }
 }

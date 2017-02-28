@@ -34,16 +34,17 @@ public class DBConnector {
         }
     }
     
-    public ResultSet executeReadOnly(String SqlQuery) {
+    public ResultSet executeSelectStatement(String SqlQuery) {
         Statement stmt = null;
         ResultSet rs = null;
         
         try {
-            stmt = this.conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            stmt = this.conn.createStatement();
             rs = stmt.executeQuery(SqlQuery);
         } catch (SQLException ex) {
             Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
     }
+    
 }
