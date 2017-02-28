@@ -32,5 +32,11 @@
       <Button layoutX="315.0" layoutY="340.0" mnemonicParsing="false" onAction="#register" text="Register" />
       <PasswordField fx:id="password" layoutX="226.0" layoutY="220.0" />
       <PasswordField fx:id="r_password" layoutX="226.0" layoutY="260.0" />
+      <Label fx:id="email_warning" alignment="CENTER" layoutX="384.0" layoutY="184.0" prefHeight="17.0" prefWidth="200.0" textAlignment="CENTER" textFill="RED" />
+      <Label fx:id="password_warning" alignment="CENTER" layoutX="384.0" layoutY="224.0" prefHeight="17.0" prefWidth="200.0" textAlignment="CENTER" textFill="RED" />
+      <Label fx:id="last_warning" alignment="CENTER" layoutX="384.0" layoutY="144.0" prefHeight="17.0" prefWidth="200.0" textAlignment="CENTER" textFill="RED" />
+      <Label fx:id="first_warning" alignment="CENTER" layoutX="384.0" layoutY="104.0" prefHeight="17.0" prefWidth="200.0" textAlignment="CENTER" textFill="RED" />
+      <Label fx:id="course_warning" alignment="CENTER" layoutX="384.0" layoutY="304.0" prefHeight="17.0" prefWidth="200.0" textAlignment="CENTER" textFill="RED" />
+      <Label fx:id="r_password_warning" alignment="CENTER" layoutX="384.0" layoutY="264.0" prefHeight="17.0" prefWidth="200.0" textAlignment="CENTER" textFill="RED" />
    </children>
 </AnchorPane>

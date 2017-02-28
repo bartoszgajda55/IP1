@@ -32,6 +32,18 @@ public class RegisterController implements Initializable {
     @FXML
     private Label label;
     @FXML
+    private Label first_warning;
+    @FXML
+    private Label last_warning;
+    @FXML
+    private Label email_warning;
+    @FXML
+    private Label password_warning;
+    @FXML
+    private Label r_password_warning;
+    @FXML
+    private Label course_warning;
+    @FXML
     private TextField first_name;
     @FXML
     private TextField last_name;
@@ -52,8 +64,52 @@ public class RegisterController implements Initializable {
         stage.show();
     }
     @FXML
-    private void register(ActionEvent event) {
-        System.out.println(first_name.getText());
+    private void register(ActionEvent event) throws IOException {
+        first_warning.setText("");
+        last_warning.setText("");
+        email_warning.setText("");
+        password_warning.setText("");
+        course_warning.setText("");
+        boolean isValid = true;
+
+        if(first_name.getText().equals("")) {
+            first_warning.setText("Field empty!");
+            isValid = false;
+        }
+        if(last_name.getText().equals("")) {
+            last_warning.setText("Field empty!");
+            isValid = false;
+        }
+        if(email.getText().equals("")) {
+            email_warning.setText("Field empty!");
+            isValid = false;
+        }
+        if(password.getText().equals("")) {
+            password_warning.setText("Field empty!");
+            isValid = false;
+        }
+        if(r_password.getText().equals("")) {
+            r_password_warning.setText("Field empty!");
+            isValid = false;
+        }
+        if(!password.getText().equals(r_password.getText())) {
+            password_warning.setText("Passwords are not matching!");
+            r_password_warning.setText("");
+            isValid = false;
+        }
+        if(course.getText().equals("")) {
+            course_warning.setText("Field empty!");
+            isValid = false;
+        }
+        
+        if(isValid) {
+            //Register user
+            stage = (Stage) label.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("/callib/Views/Dashboard.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
     /**
      * Initializes the controller class.
