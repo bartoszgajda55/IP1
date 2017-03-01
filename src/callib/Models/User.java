@@ -28,8 +28,11 @@ public class User {
     public boolean isLoginCorrect(String email, String password) {
         try {
             ResultSet rs = connector.executeSelectStatement("SELECT password FROM users WHERE users.email LIKE '" + email + "'");
-            rs.first();
-            return rs.getString("password").equals(password);
+            if(rs.isBeforeFirst()) {
+                rs.first();
+                return rs.getString("password").equals(password);
+            }
+            return false;
         } catch (SQLException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }
