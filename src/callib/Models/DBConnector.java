@@ -47,4 +47,17 @@ public class DBConnector {
         return rs;
     }
     
+    public boolean executeInsertStatement(String SqlQuery) {
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = conn.prepareStatement(SqlQuery);
+            stmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
 }
