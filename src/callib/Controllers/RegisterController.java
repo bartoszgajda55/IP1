@@ -106,6 +106,7 @@ public class RegisterController implements Initializable {
         
         if(isValid) {
             if(user.addUser(first_name.getText(), last_name.getText(), email.getText(), password.getText(), course.getText())) {
+                user.setUserId(email.getText());
                 stage = (Stage) label.getScene().getWindow();
                 root = FXMLLoader.load(getClass().getResource("/callib/Views/Dashboard.fxml"));
                 Scene scene = new Scene(root);

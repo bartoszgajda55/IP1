@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import callib.Controllers.Main;
 /**
  *
  * @author Admin
@@ -41,5 +42,21 @@ public class User {
     
     public boolean addUser(String first_name, String last_name, String email, String password, String course) {
         return connector.executeInsertStatement("INSERT INTO users (first_name, last_name, email, password, course) VALUES ('"+first_name+"','"+last_name+"','"+email+"','"+password+"','"+course+"')");
+    }
+    
+    public void setUserId(String email) {
+        ResultSet rs = connector.executeSelectStatement("SELECT id FROM users WHERE users.email LIKE '" + email + "'");
+        try {
+            rs.first();
+            Main.setId(rs.getInt("id"));
+            System.out.println(Main.getId());
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void getUserInfo() {
+        
     }
 }

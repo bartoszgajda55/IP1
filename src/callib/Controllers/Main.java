@@ -20,6 +20,8 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
     
+    private static int userId;
+    
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -37,6 +39,14 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+    
+    public static void setId(int id) {
+        Main.userId = id;
+    }
+    
+    public static int getId() {
+        return Main.userId;
     }
     
 }

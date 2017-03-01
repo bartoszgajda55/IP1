@@ -43,6 +43,7 @@ public class LoginController implements Initializable {
         messageLabel.setText("");
         if(user.isLoginCorrect(emailField.getText(), passwordField.getText())) {
             System.out.println("Logged in");
+            user.setUserId(emailField.getText());
             stage = (Stage) emailField.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/callib/Views/Dashboard.fxml"));
             Scene scene = new Scene(root);

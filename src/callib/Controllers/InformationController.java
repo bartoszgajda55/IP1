@@ -23,11 +23,23 @@ import javafx.stage.Stage;
  * @author Admin
  */
 public class InformationController implements Initializable {
-
-    @FXML
-    private Label label;
+    
     private Stage stage;
     private Parent root;
+    
+    @FXML
+    private Label label;
+    @FXML
+    private Label id;
+    @FXML
+    private Label f_name;
+    @FXML
+    private Label l_name;
+    @FXML
+    private Label email;
+    @FXML
+    private Label course;
+    
     @FXML
     private void back(ActionEvent event) throws IOException {
         stage = (Stage) label.getScene().getWindow();
