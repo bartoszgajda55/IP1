@@ -56,7 +56,22 @@ public class User {
         
     }
     
-    public void getUserInfo() {
-        
+    public String[] getUserInfo(int id) {
+        try {
+            ResultSet rs = connector.executeSelectStatement("SELECT * FROM users WHERE users.id LIKE " + id);
+            if(rs.isBeforeFirst()) {
+                rs.first();
+                String[] array = new String[5];
+                array[0] = Integer.toString(rs.getInt("id"));
+                array[1] = rs.getString("first_name");
+                array[2] = rs.getString("last_name");
+                array[3] = rs.getString("email");
+                array[4] = rs.getString("course");
+                return array;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

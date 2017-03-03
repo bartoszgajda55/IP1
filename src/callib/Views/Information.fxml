@@ -45,27 +45,27 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="id" layoutX="320.0" layoutY="160.0" prefHeight="30.0" prefWidth="90.0">
+      <Label fx:id="id" layoutX="320.0" layoutY="160.0" prefHeight="30.0" prefWidth="280.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="f_name" layoutX="320.0" layoutY="200.0" prefHeight="30.0" prefWidth="90.0">
+      <Label fx:id="f_name" layoutX="320.0" layoutY="200.0" prefHeight="30.0" prefWidth="280.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="l_name" layoutX="320.0" layoutY="240.0" prefHeight="30.0" prefWidth="90.0">
+      <Label fx:id="l_name" layoutX="320.0" layoutY="240.0" prefHeight="30.0" prefWidth="280.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="email" layoutX="320.0" layoutY="280.0" prefHeight="30.0" prefWidth="90.0">
+      <Label fx:id="email" layoutX="320.0" layoutY="280.0" prefHeight="30.0" prefWidth="280.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="course" layoutX="320.0" layoutY="320.0" prefHeight="30.0" prefWidth="90.0">
+      <Label fx:id="course" layoutX="320.0" layoutY="320.0" prefHeight="30.0" prefWidth="280.0">
          <font>
             <Font size="18.0" />
          </font>

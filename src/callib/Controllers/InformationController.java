@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import callib.Models.User;
 
 /**
  * FXML Controller class
@@ -26,6 +27,7 @@ public class InformationController implements Initializable {
     
     private Stage stage;
     private Parent root;
+    private User user = User.getInstance();
     
     @FXML
     private Label label;
@@ -53,7 +55,11 @@ public class InformationController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        String[] array = user.getUserInfo(Main.getId());
+        id.setText(array[0]);
+        f_name.setText(array[1]);
+        l_name.setText(array[2]);
+        email.setText(array[3]);
+        course.setText(array[4]);
+    }        
 }
