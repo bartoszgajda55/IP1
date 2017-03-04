@@ -13,11 +13,23 @@
         <URL value="@search.css" />
     </stylesheets>
    <children>
-      <Label fx:id="label" layoutX="294.0" layoutY="40.0" text="Search">
+      <Label fx:id="label" layoutX="294.0" layoutY="20.0" text="Search" textAlignment="CENTER">
          <font>
             <Font size="72.0" />
          </font>
       </Label>
       <Button layoutX="40.0" layoutY="550.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <TableView fx:id="table" layoutX="50.0" layoutY="125.0" prefHeight="400.0" prefWidth="700.0">
+        <columns>
+          <TableColumn fx:id="title" prefWidth="191.0" text="Title" />
+          <TableColumn fx:id="category" text="Category" />
+            <TableColumn fx:id="author" prefWidth="87.0" text="Author" />
+            <TableColumn fx:id="isbn" prefWidth="94.0" text="ISBN" />
+            <TableColumn fx:id="publisher" prefWidth="71.0" text="Publisher" />
+            <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="pages" prefWidth="67.0" text="Pages" />
+            <TableColumn fx:id="quantity" prefWidth="34.0" text="Q" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
