@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import callib.Models.User;
+import java.util.ArrayList;
 
 /**
  * FXML Controller class
@@ -55,11 +56,11 @@ public class InformationController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String[] array = user.getUserInfo(Main.getId());
-        id.setText(array[0]);
-        f_name.setText(array[1]);
-        l_name.setText(array[2]);
-        email.setText(array[3]);
-        course.setText(array[4]);
+        ArrayList<String> alist = user.getUserInfo(Main.getId());
+        id.setText(alist.get(0));
+        f_name.setText(alist.get(1));
+        l_name.setText(alist.get(2));
+        email.setText(alist.get(3));
+        course.setText(alist.get(4));
     }        
 }

@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import callib.Controllers.Main;
+import java.util.ArrayList;
 /**
  *
  * @author Admin
@@ -56,18 +57,18 @@ public class User {
         
     }
     
-    public String[] getUserInfo(int id) {
+    public ArrayList<String> getUserInfo(int id) {
         try {
             ResultSet rs = connector.executeSelectStatement("SELECT * FROM users WHERE users.id LIKE " + id);
             if(rs.isBeforeFirst()) {
                 rs.first();
-                String[] array = new String[5];
-                array[0] = Integer.toString(rs.getInt("id"));
-                array[1] = rs.getString("first_name");
-                array[2] = rs.getString("last_name");
-                array[3] = rs.getString("email");
-                array[4] = rs.getString("course");
-                return array;
+                ArrayList alist = new ArrayList();
+                alist.add(Integer.toString(rs.getInt("id")));
+                alist.add(rs.getString("first_name"));
+                alist.add(rs.getString("last_name"));
+                alist.add(rs.getString("email"));
+                alist.add(rs.getString("course"));
+                return alist;
             }
         } catch (SQLException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
