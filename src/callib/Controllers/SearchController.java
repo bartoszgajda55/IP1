@@ -76,14 +76,14 @@ public class SearchController implements Initializable {
     
     @FXML
     private void search(ActionEvent event) {
-        System.out.println(search_combo.getValue());
+        table.setItems(book.getFilteredBooksList(search_field.getText(), (String) search_combo.getValue()));
     }
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<BookEntity> data = book.getBookList();
+        ObservableList<BookEntity> data = book.getAllBooksList();
         
         title.setCellValueFactory(new PropertyValueFactory<>("title"));
         category.setCellValueFactory(new PropertyValueFactory<>("category"));
@@ -98,6 +98,7 @@ public class SearchController implements Initializable {
         
         ObservableList<String> options = FXCollections.observableArrayList("Title", "Category", "Author", "Publisher");
         search_combo.setItems(options);
+        search_combo.getSelectionModel().selectFirst();
     }    
     
 }

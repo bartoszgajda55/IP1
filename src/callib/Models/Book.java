@@ -28,7 +28,7 @@ public class Book {
         return book;
     }
     
-    public ObservableList<BookEntity> getBookList() {
+    public ObservableList<BookEntity> getAllBooksList() {
         ResultSet rs = connector.executeSelectStatement("SELECT * FROM books");
         try {
             ObservableList<BookEntity> result = FXCollections.observableArrayList();
@@ -41,5 +41,20 @@ public class Book {
             Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;     
+    }
+    
+    public ObservableList<BookEntity> getFilteredBooksList(String searchPhrase, String column) {
+        ResultSet rs = connector.executeSelectStatement("SELECT * FROM books WHERE books." + column + " LIKE '%" + searchPhrase + "%'");
+        try {
+            ObservableList<BookEntity> result = FXCollections.observableArrayList();
+            while (rs.next()) {
+                result.add(new BookEntity(rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), rs.getString("publisher"),
+                        rs.getString("pub_date"), rs.getInt("pages"), rs.getInt("quantity")));
+            }
+            return result;
+        } catch (SQLException ex) {
+            Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }
