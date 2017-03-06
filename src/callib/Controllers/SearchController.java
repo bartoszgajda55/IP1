@@ -61,7 +61,7 @@ public class SearchController implements Initializable {
     private ComboBox search_combo;
     
     @FXML
-    private TableView<BookEntity> table;    
+    private TableView table;    
     @FXML
     private Label label;
     

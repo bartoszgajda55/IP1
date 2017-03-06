@@ -5,38 +5,44 @@
  */
 package callib.Models;
 
+import java.sql.Date;
+
 /**
  *
  * @author Admin
  */
-public class BookEntity {
+public class BorrowedBookEntity {
     
     private int id;
+    private int user_id;
     private String title;
     private String category;
     private String author;
     private int isbn;
     private String publisher;
-    private String date;
-    private int pages;
-    private int quantity;
+    private Date date;
+    private Date return_date;
     
-    public BookEntity() {}
+    public BorrowedBookEntity() {}
     
-    public BookEntity(int id, String title, String category, String author, int isbn, String publisher, String date, int pages, int quantity) {
+    public BorrowedBookEntity(int id, int user_id, String title, String category, String author, int isbn, String publisher, Date date, Date return_date) {
         this.id = id;
+        this.user_id = user_id;
         this.title = title;
         this.category = category;
         this.author = author;
         this.isbn = isbn;
         this.publisher = publisher;
         this.date = date;
-        this.pages = pages;
-        this.quantity = quantity;
+        this.return_date = return_date;
     }
     
     public int getId() {
         return id;
+    }
+    
+    public int getUser_id() {
+        return user_id;
     }
     
     public String getTitle() {
@@ -44,30 +50,27 @@ public class BookEntity {
     }
     
     public String getCategory() {
-        return this.category;
+        return category;
     }
     
     public String getAuthor() {
-        return this.author;
+        return author;
     }
     
     public int getIsbn() {
-        return this.isbn;
+        return isbn;
     }
     
     public String getPublisher() {
-        return this.publisher;
+        return publisher;
     }
     
-    public String getDate() {
-        return this.date;
+    public Date getDate() {
+        return date;
     }
     
-    public int getPages() {
-        return this.pages;
+    public Date getReturn_date() {
+        return return_date;
     }
     
-    public int getQuantity() {
-        return this.quantity;
-    }
 }

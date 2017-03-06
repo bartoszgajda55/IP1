@@ -33,7 +33,7 @@ public class Book {
         try {
             ObservableList<BookEntity> result = FXCollections.observableArrayList();
             while (rs.next()) {
-                result.add(new BookEntity(rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), rs.getString("publisher"),
+                result.add(new BookEntity(rs.getInt("id"), rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), rs.getString("publisher"),
                         rs.getString("pub_date"), rs.getInt("pages"), rs.getInt("quantity")));
             }
             return result;
@@ -48,7 +48,7 @@ public class Book {
         try {
             ObservableList<BookEntity> result = FXCollections.observableArrayList();
             while (rs.next()) {
-                result.add(new BookEntity(rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), rs.getString("publisher"),
+                result.add(new BookEntity(rs.getInt("id"), rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), rs.getString("publisher"),
                         rs.getString("pub_date"), rs.getInt("pages"), rs.getInt("quantity")));
             }
             return result;
