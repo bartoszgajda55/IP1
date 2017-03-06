@@ -7,9 +7,10 @@ package callib.Models;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -27,22 +28,13 @@ public class Book {
         return book;
     }
     
-    public ArrayList<ArrayList<String>> getBookList() {
+    public ObservableList<BookEntity> getBookList() {
         ResultSet rs = connector.executeSelectStatement("SELECT * FROM books");
-        int numcols;
         try {
-            numcols = rs.getMetaData().getColumnCount();
-            ArrayList<ArrayList<String>> result = new ArrayList<>();
-
+            ObservableList<BookEntity> result = FXCollections.observableArrayList();
             while (rs.next()) {
-                ArrayList<String> row = new ArrayList<>(numcols); // new list per row
-
-                for (int i=1; i<= numcols; i++) {  // don't skip the last column, use <=
-                    row.add(rs.getString(i));
-                    System.out.print(rs.getString(i) + "\t");
-                }
-                result.add(row); // add it to the result
-                System.out.print("\n");
+                result.add(new BookEntity(rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), rs.getString("publisher"),
+                        rs.getString("pub_date"), rs.getInt("pages"), rs.getInt("quantity")));
             }
             return result;
         } catch (SQLException ex) {

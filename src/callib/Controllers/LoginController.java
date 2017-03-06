@@ -42,7 +42,6 @@ public class LoginController implements Initializable {
     private void login(ActionEvent event) throws IOException {
         messageLabel.setText("");
         if(user.isLoginCorrect(emailField.getText(), passwordField.getText())) {
-            System.out.println("Logged in");
             user.setUserId(emailField.getText());
             stage = (Stage) emailField.getScene().getWindow();
             root = FXMLLoader.load(getClass().getResource("/callib/Views/Dashboard.fxml"));

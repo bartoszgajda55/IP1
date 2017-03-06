@@ -13,7 +13,7 @@
         <URL value="@borrowed.css" />
     </stylesheets>
    <children>
-      <Label fx:id="label" layoutX="246.0" layoutY="38.0" text="Borrowed" textAlignment="CENTER">
+      <Label fx:id="label" layoutX="246.0" layoutY="20.0" text="Borrowed" textAlignment="CENTER">
          <font>
             <Font size="72.0" />
          </font>

@@ -50,7 +50,6 @@ public class User {
         try {
             rs.first();
             Main.setId(rs.getInt("id"));
-            System.out.println(Main.getId());
         } catch (SQLException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }

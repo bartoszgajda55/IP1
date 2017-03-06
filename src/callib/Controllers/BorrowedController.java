@@ -24,10 +24,11 @@ import javafx.stage.Stage;
  */
 public class BorrowedController implements Initializable {
 
-    @FXML
-    private Label label;
     private Stage stage;
     private Parent root;
+    
+    @FXML
+    private Label label;
     @FXML
     private void back(ActionEvent event) throws IOException {
         stage = (Stage) label.getScene().getWindow();
