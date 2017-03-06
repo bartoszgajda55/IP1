@@ -35,14 +35,22 @@ public class SearchController implements Initializable {
     private Stage stage;
     private Parent root;
 
-    private TableColumn<BookEntity, String> title = new TableColumn<>("Title");
-    private TableColumn<BookEntity, String> category = new TableColumn<>("Category");
-    private TableColumn<BookEntity, String> author = new TableColumn<>("Author");
-    private TableColumn<BookEntity, Integer> isbn = new TableColumn<>("ISBN");
-    private TableColumn<BookEntity, String> publisher = new TableColumn<>("Publisher");
-    private TableColumn<BookEntity, String> date = new TableColumn<>("Date");
-    private TableColumn<BookEntity, Integer> pages = new TableColumn<>("Pages");
-    private TableColumn<BookEntity, Integer> quantity = new TableColumn<>("Q");
+    @FXML
+    private TableColumn title;
+    @FXML
+    private TableColumn category;
+    @FXML
+    private TableColumn author;
+    @FXML
+    private TableColumn isbn;
+    @FXML
+    private TableColumn publisher;
+    @FXML
+    private TableColumn date;
+    @FXML
+    private TableColumn pages;
+    @FXML
+    private TableColumn quantity;
     
     @FXML
     private TableView<BookEntity> table;    
@@ -73,7 +81,6 @@ public class SearchController implements Initializable {
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
  
         table.setItems(data);
-        table.getColumns().addAll(title, category, author, isbn, publisher, date, pages, quantity);
     }    
     
 }
