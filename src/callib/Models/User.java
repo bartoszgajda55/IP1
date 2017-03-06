@@ -74,4 +74,17 @@ public class User {
         }
         return null;
     }
+    
+    public boolean updatePassword(String oldPassword, String newPassword) {
+        try {
+            ResultSet rs = connector.executeSelectStatement("SELECT password FROM users WHERE users.id LIKE " + Main.getId());
+            rs.first();
+            if(!rs.getString("password").equals(oldPassword)) {
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return connector.executeUpdateStatement("UPDATE users SET password = '" + newPassword + "' WHERE id = " + Main.getId());
+    }
 }

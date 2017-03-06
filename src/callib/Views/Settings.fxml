@@ -19,5 +19,13 @@
          </font>
       </Label>
       <Button layoutX="40.0" layoutY="550.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <PasswordField fx:id="current_password" layoutX="200.0" layoutY="200.0" />
+      <Label alignment="CENTER_RIGHT" layoutX="90.0" layoutY="204.0" prefHeight="17.0" prefWidth="110.0" text="Current Password - " />
+      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="90.0" layoutY="254.0" prefHeight="17.0" prefWidth="110.0" text="New Password - " />
+      <Label alignment="CENTER_RIGHT" layoutX="90.0" layoutY="304.0" prefHeight="17.0" prefWidth="110.0" text="Retype Password - " />
+      <PasswordField fx:id="new_password" layoutX="200.0" layoutY="250.0" />
+      <PasswordField fx:id="retype_password" layoutX="200.0" layoutY="300.0" />
+      <Button layoutX="200.0" layoutY="350.0" mnemonicParsing="false" onAction="#changePassword" text="Change Password" />
+      <Label fx:id="warning" alignment="CENTER" layoutX="172.0" layoutY="160.0" prefHeight="17.0" prefWidth="200.0" textFill="RED" />
    </children>
 </AnchorPane>
