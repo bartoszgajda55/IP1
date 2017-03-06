@@ -11,30 +11,28 @@ import java.sql.Date;
  *
  * @author Admin
  */
-public class BookEntity {
+public class RequestedBookEntity {
     
     private int id;
+    private int user_id;
     private String title;
     private String category;
     private String author;
     private int isbn;
     private String publisher;
     private Date date;
-    private int pages;
-    private int quantity;
     
-    public BookEntity() {}
+    public RequestedBookEntity() {}
     
-    public BookEntity(int id, String title, String category, String author, int isbn, String publisher, Date date, int pages, int quantity) {
+    public RequestedBookEntity(int id, int user_id, String title, String category, String author, int isbn, String publisher, Date date) {
         this.id = id;
+        this.user_id = user_id;
         this.title = title;
         this.category = category;
         this.author = author;
         this.isbn = isbn;
         this.publisher = publisher;
         this.date = date;
-        this.pages = pages;
-        this.quantity = quantity;
     }
 
     /**
@@ -42,6 +40,13 @@ public class BookEntity {
      */
     public int getId() {
         return id;
+    }
+
+    /**
+     * @return the user_id
+     */
+    public int getUser_id() {
+        return user_id;
     }
 
     /**
@@ -84,20 +89,6 @@ public class BookEntity {
      */
     public Date getDate() {
         return date;
-    }
-
-    /**
-     * @return the pages
-     */
-    public int getPages() {
-        return pages;
-    }
-
-    /**
-     * @return the quantity
-     */
-    public int getQuantity() {
-        return quantity;
     }
     
 }

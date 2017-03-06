@@ -36,39 +36,66 @@ public class BorrowedBookEntity {
         this.date = date;
         this.return_date = return_date;
     }
-    
+
+    /**
+     * @return the id
+     */
     public int getId() {
         return id;
     }
-    
+
+    /**
+     * @return the user_id
+     */
     public int getUser_id() {
         return user_id;
     }
-    
+
+    /**
+     * @return the title
+     */
     public String getTitle() {
         return title;
     }
-    
+
+    /**
+     * @return the category
+     */
     public String getCategory() {
         return category;
     }
-    
+
+    /**
+     * @return the author
+     */
     public String getAuthor() {
         return author;
     }
-    
+
+    /**
+     * @return the isbn
+     */
     public int getIsbn() {
         return isbn;
     }
-    
+
+    /**
+     * @return the publisher
+     */
     public String getPublisher() {
         return publisher;
     }
-    
+
+    /**
+     * @return the date
+     */
     public Date getDate() {
         return date;
     }
-    
+
+    /**
+     * @return the return_date
+     */
     public Date getReturn_date() {
         return return_date;
     }

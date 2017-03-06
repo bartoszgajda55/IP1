@@ -13,11 +13,21 @@
         <URL value="@requests.css" />
     </stylesheets>
    <children>
-      <Label fx:id="label" layoutX="256.0" layoutY="40.0" text="Requests">
+      <Label fx:id="label" layoutX="256.0" layoutY="20.0" text="Requests">
          <font>
             <Font size="72.0" />
          </font>
       </Label>
       <Button layoutX="40.0" layoutY="550.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <TableView fx:id="table" layoutX="25.0" layoutY="125.0" prefHeight="400.0" prefWidth="750.0">
+        <columns>
+          <TableColumn fx:id="title" prefWidth="220.0" text="Title" />
+          <TableColumn fx:id="category" prefWidth="100.0" text="Category" />
+            <TableColumn fx:id="author" prefWidth="120.0" text="Author" />
+            <TableColumn fx:id="isbn" prefWidth="100.0" text="ISBN" />
+            <TableColumn fx:id="publisher" prefWidth="120.0" text="Publisher" />
+            <TableColumn fx:id="date" prefWidth="90.0" text="Date" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
