@@ -30,6 +30,7 @@ public class RegisterController implements Initializable {
     private Stage stage;
     private Parent root;
     private User user = User.getInstance();
+    private String EMAIL_REGEX = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
     
     @FXML
     private Label label;
@@ -86,6 +87,10 @@ public class RegisterController implements Initializable {
             email_warning.setText("Field empty!");
             isValid = false;
         }
+        if(!email.getText().matches(EMAIL_REGEX)) {
+            email_warning.setText("Email invalid");
+            isValid = false;
+        }
         if(password.getText().equals("")) {
             password_warning.setText("Field empty!");
             isValid = false;
@@ -104,19 +109,14 @@ public class RegisterController implements Initializable {
             isValid = false;
         }
         
-        if(isValid) {
-            if(user.addUser(first_name.getText(), last_name.getText(), email.getText(), password.getText(), course.getText())) {
-                user.setUserId(email.getText());
-                stage = (Stage) label.getScene().getWindow();
-                root = FXMLLoader.load(getClass().getResource("/callib/Views/Dashboard.fxml"));
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-            } else {
-                System.out.println("Registering error");
-            }
-            
-        }
+        if(isValid && user.addUser(first_name.getText(), last_name.getText(), email.getText(), password.getText(), course.getText())) {
+            user.setUserId(email.getText());
+            stage = (Stage) label.getScene().getWindow();
+            root = FXMLLoader.load(getClass().getResource("/callib/Views/Dashboard.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }   
     }
     /**
      * Initializes the controller class.
