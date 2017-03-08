@@ -49,7 +49,7 @@ public class SettingsController implements Initializable {
         boolean isValid = true;
         
         if(current_password.getText().equals("") || new_password.getText().equals("") || retype_password.getText().equals("")) {
-            warning.setText("Field empty!");
+            warning.setText("Field(s) empty!");
             isValid = false;
         } else if (!new_password.getText().equals(retype_password.getText())) {
             warning.setText("Passwords don't match!");

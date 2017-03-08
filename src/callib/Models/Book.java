@@ -44,7 +44,7 @@ public class Book {
     }
     
     public ObservableList<BookEntity> getFilteredBooksList(String searchPhrase, String column) {
-        ResultSet rs = connector.executeSelectStatement("SELECT * FROM books WHERE books." + column + " LIKE '%" + searchPhrase + "%'");
+        ResultSet rs = connector.executeSelectStatement("SELECT * FROM books WHERE books." + column + " COLLATE UTF8_GENERAL_CI LIKE '%" + searchPhrase + "%'");
         try {
             ObservableList<BookEntity> result = FXCollections.observableArrayList();
             while (rs.next()) {
