@@ -20,12 +20,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -56,11 +58,23 @@ public class BorrowedController implements Initializable {
     private TableColumn<BorrowedBookEntity, Date> return_date;
     
     @FXML
-    public void clickItem(MouseEvent event)
+    public void clickItem(MouseEvent event) throws IOException
     {
-        if (event.getClickCount() == 2)
-            System.out.println(table.getSelectionModel().getSelectedItem().getId());
-            // TODO Open new window with informations and options (renew period of use, do some other stuff)
+        if (event.getClickCount() == 2) {
+            stage = (Stage) label.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/callib/Views/BorrowedDetails.fxml"));
+            Stage modal  = new Stage();
+            modal.initModality(Modality.APPLICATION_MODAL);
+            modal.setScene(
+                    new Scene((Pane) loader.load())
+            );
+            modal.setX(stage.getX() + 50);
+            modal.setY(stage.getY() + 50);
+            BorrowedDetailsController controller = loader.<BorrowedDetailsController>getController();
+            controller.initData(table.getSelectionModel().getSelectedItem().getId());
+            
+            modal.showAndWait();
+        }
     }
     
     @FXML
@@ -73,6 +87,7 @@ public class BorrowedController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    
     /**
      * Initializes the controller class.
      */
