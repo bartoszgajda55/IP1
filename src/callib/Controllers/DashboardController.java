@@ -45,9 +45,9 @@ public class DashboardController implements Initializable {
         stage.show();
     }
     @FXML
-    private void requests(ActionEvent event) throws IOException {
+    private void requested(ActionEvent event) throws IOException {
         stage = (Stage) label.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("/callib/Views/Requests.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/callib/Views/Requested.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

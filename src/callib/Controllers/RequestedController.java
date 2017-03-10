@@ -29,7 +29,7 @@ import javafx.stage.Stage;
  *
  * @author Admin
  */
-public class RequestsController implements Initializable {
+public class RequestedController implements Initializable {
 
     private RequestedBook requested = RequestedBook.getInstance();
     private Stage stage;

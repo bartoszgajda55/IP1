@@ -86,18 +86,18 @@ public class BorrowedController implements Initializable {
         isbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
-        //return_date.setCellValueFactory(new PropertyValueFactory<>("return_date"));
+        return_date.setCellValueFactory(new PropertyValueFactory<>("return_date"));
         
         
-        return_date.setCellFactory((TableColumn<BorrowedBookEntity, Date> column) -> {
-            return new TableCell<BorrowedBookEntity, Date>() {
-                @Override
-                protected void updateItem(Date item, boolean empty) {
-                    super.updateItem(item, empty);
-                    setText(empty ? "" : "some date");
-                }
-            };
-        });
+//        return_date.setCellFactory((TableColumn<BorrowedBookEntity, Date> column) -> {
+//            return new TableCell<BorrowedBookEntity, Date>() {
+//                @Override
+//                protected void updateItem(Date item, boolean empty) {
+//                    super.updateItem(item, empty);
+//                    setText(empty ? "" : "some date");
+//                }
+//            };
+//        });
  
         table.setItems(data);
     }    
