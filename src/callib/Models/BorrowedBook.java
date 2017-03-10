@@ -45,4 +45,22 @@ public class BorrowedBook {
         }
         return null;
     }
+    
+    public BorrowedBookEntity getBorrowedBookDetails(int id) {
+        try {
+            ResultSet rs = connector.executeSelectStatement("SELECT borrowed_books.id, borrowed_books.date, borrowed_books.return_date, "
+                + "borrowed_books.user_id, books.title, books.category, books.author, books.isbn, books.publisher FROM borrowed_books "
+                + "INNER JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.id LIKE " + id);
+            if(rs.isBeforeFirst()) {
+                rs.first();
+                BorrowedBookEntity entity = new BorrowedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), 
+                rs.getString("publisher"), rs.getDate("date"), rs.getDate("return_date"));
+                return entity;
+            }
+            return null;
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }
