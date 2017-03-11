@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -44,6 +45,13 @@ public class BorrowedDetailsController implements Initializable {
     private Label date;
     @FXML
     private Label return_date;
+    @FXML
+    private Button extend;
+    
+    @FXML
+    private void extendReturnTime(ActionEvent event) {
+        System.out.println("extended");
+    }
     
     @FXML
     private void close(ActionEvent event) {
@@ -68,7 +76,6 @@ public class BorrowedDetailsController implements Initializable {
     }
     
     public void displayData() {
-        System.out.println("controller " + this.borrowkId);
         BorrowedBookEntity bookDetails = borrowed.getBorrowedBookDetails(this.borrowkId);
         title.setText(bookDetails.getTitle());
         category.setText(bookDetails.getCategory());

@@ -69,7 +69,7 @@ public class BorrowedController implements Initializable {
             );
             modal.setX(stage.getX() + 50);
             modal.setY(stage.getY() + 50);
-            BorrowedDetailsController controller = loader.<BorrowedDetailsController>getController();
+            BorrowedDetailsController controller = (BorrowedDetailsController) loader.getController();
             controller.initData(table.getSelectionModel().getSelectedItem().getId());
             
             modal.showAndWait();
