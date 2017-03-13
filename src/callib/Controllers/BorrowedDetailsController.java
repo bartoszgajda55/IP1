@@ -65,8 +65,7 @@ public class BorrowedDetailsController implements Initializable {
         } else {
             warning.setTextFill(Color.web("#FF0000"));
             warning.setText("Extension Failed!");
-        }
-        
+        }  
     }
     
     @FXML
@@ -103,8 +102,15 @@ public class BorrowedDetailsController implements Initializable {
         LocalDate today = LocalDate.now();
         LocalDate next2Week = today.plus(2, ChronoUnit.WEEKS);
         
-        if(bookDetails.getReturn_date().toLocalDate().isAfter(next2Week)) {
+        if(bookDetails.getReturn_date().toLocalDate().isBefore(today)) {
             extend.setDisable(true);
+            warning.setTextFill(Color.web("#FF0000"));
+            warning.setText("Return date has passed!");
+        }
+        else if(bookDetails.getReturn_date().toLocalDate().isAfter(next2Week)) {
+            extend.setDisable(true);
+            warning.setTextFill(Color.web("#FF0000"));
+            warning.setText("Return date is longer than 2 weeks.");
         }
     }
     
