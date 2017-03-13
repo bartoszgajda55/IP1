@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -49,13 +50,23 @@ public class BorrowedDetailsController implements Initializable {
     @FXML
     private Label return_date;
     @FXML
+    private Label warning;
+    @FXML
     private Button extend;
     
     @FXML
     private void extendReturnTime(ActionEvent event) {
         LocalDate extendedDate = bookDetails.getReturn_date().toLocalDate().plus(2, ChronoUnit.WEEKS);
-        borrowed.updateReturnDate(java.sql.Date.valueOf(extendedDate));
-        extend.setDisable(true);
+        if(borrowed.updateReturnDate(bookDetails.getId(), extendedDate.toString())) {
+            extend.setDisable(true);
+            return_date.setText(extendedDate.toString());
+            warning.setTextFill(Color.web("#00FF00"));
+            warning.setText("Extended Succefully!");
+        } else {
+            warning.setTextFill(Color.web("#FF0000"));
+            warning.setText("Extension Failed!");
+        }
+        
     }
     
     @FXML

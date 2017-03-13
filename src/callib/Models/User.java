@@ -85,6 +85,6 @@ public class User {
         } catch (SQLException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return connector.executeUpdateStatement("UPDATE users SET password = '" + newPassword + "' WHERE id = " + Main.getId());
+        return connector.executeUpdateStatement("UPDATE users SET password = '" + newPassword + "' WHERE id LIKE " + Main.getId());
     }
 }

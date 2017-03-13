@@ -90,5 +90,6 @@
          </font>
       </Label>
       <Button fx:id="extend" layoutX="500.0" layoutY="263.0" mnemonicParsing="false" onAction="#extendReturnTime" text="Extend" />
+      <Label fx:id="warning" alignment="CENTER" layoutX="200.0" layoutY="333.0" prefHeight="17.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

@@ -65,7 +65,7 @@ public class BorrowedBook {
         return null;
     }
     
-    public void updateReturnDate(Date date) {
-        //
+    public boolean updateReturnDate(int id, String date) {
+        return connector.executeUpdateStatement("UPDATE borrowed_books SET return_date = '" + date + "' WHERE id LIKE " + id);
     }
 }
