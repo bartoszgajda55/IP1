@@ -73,6 +73,7 @@ public class BorrowedController implements Initializable {
             controller.initData(table.getSelectionModel().getSelectedItem().getId());
             
             modal.showAndWait();
+            this.displayData();
         }
     }
     
@@ -92,15 +93,7 @@ public class BorrowedController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<BorrowedBookEntity> data = borrowed.getAllBorrowedBooksList();
-        
-        title.setCellValueFactory(new PropertyValueFactory<>("title"));
-        category.setCellValueFactory(new PropertyValueFactory<>("category"));
-        author.setCellValueFactory(new PropertyValueFactory<>("author"));
-        isbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
-        publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
-        date.setCellValueFactory(new PropertyValueFactory<>("date"));
-        return_date.setCellValueFactory(new PropertyValueFactory<>("return_date"));
+        this.displayData();
         
         
 //        return_date.setCellFactory((TableColumn<BorrowedBookEntity, Date> column) -> {
@@ -113,7 +106,20 @@ public class BorrowedController implements Initializable {
 //            };
 //        });
  
+        
+    }
+
+    private void displayData() {
+        ObservableList<BorrowedBookEntity> data = borrowed.getAllBorrowedBooksList();
+        
+        title.setCellValueFactory(new PropertyValueFactory<>("title"));
+        category.setCellValueFactory(new PropertyValueFactory<>("category"));
+        author.setCellValueFactory(new PropertyValueFactory<>("author"));
+        isbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
+        publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        return_date.setCellValueFactory(new PropertyValueFactory<>("return_date"));
+        
         table.setItems(data);
-    }    
-    
+    }   
 }
