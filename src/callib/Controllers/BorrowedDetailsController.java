@@ -8,6 +8,8 @@ package callib.Controllers;
 import callib.Models.BorrowedBook;
 import callib.Models.BorrowedBookEntity;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,6 +29,7 @@ public class BorrowedDetailsController implements Initializable {
     private Stage stage;
     private int borrowkId;
     private BorrowedBook borrowed = BorrowedBook.getInstance();
+    private BorrowedBookEntity bookDetails = null;
     
     
     @FXML
@@ -50,7 +53,9 @@ public class BorrowedDetailsController implements Initializable {
     
     @FXML
     private void extendReturnTime(ActionEvent event) {
-        System.out.println("extended");
+        LocalDate extendedDate = bookDetails.getReturn_date().toLocalDate().plus(2, ChronoUnit.WEEKS);
+        borrowed.updateReturnDate(java.sql.Date.valueOf(extendedDate));
+        extend.setDisable(true);
     }
     
     @FXML
@@ -65,18 +70,15 @@ public class BorrowedDetailsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         //TODO
     }
-    /**
-     * 
-     * @param data
-     * @return void
-     */
+
     public void initData(int id) {
         this.borrowkId = id;
         this.displayData();
+        this.isReturnExtensionAllowed();
     }
     
-    public void displayData() {
-        BorrowedBookEntity bookDetails = borrowed.getBorrowedBookDetails(this.borrowkId);
+    private void displayData() {
+        bookDetails = borrowed.getBorrowedBookDetails(this.borrowkId);
         title.setText(bookDetails.getTitle());
         category.setText(bookDetails.getCategory());
         author.setText(bookDetails.getAuthor());
@@ -84,6 +86,15 @@ public class BorrowedDetailsController implements Initializable {
         publisher.setText(bookDetails.getPublisher());
         date.setText(bookDetails.getDate().toString());
         return_date.setText(bookDetails.getReturn_date().toString());
+    }
+    
+    private void isReturnExtensionAllowed() {
+        LocalDate today = LocalDate.now();
+        LocalDate next2Week = today.plus(2, ChronoUnit.WEEKS);
+        
+        if(bookDetails.getReturn_date().toLocalDate().isAfter(next2Week)) {
+            extend.setDisable(true);
+        }
     }
     
 }

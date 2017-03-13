@@ -6,6 +6,7 @@
 package callib.Models;
 
 import callib.Controllers.Main;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -37,7 +38,7 @@ public class BorrowedBook {
             ObservableList<BorrowedBookEntity> result = FXCollections.observableArrayList();
             while (rs.next()) {
                 result.add(new BorrowedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), 
-                rs.getString("publisher"), rs.getDate("date"), rs.getDate("return_date")));
+                    rs.getString("publisher"), rs.getDate("date"), rs.getDate("return_date")));
             }
             return result;
         } catch (SQLException ex) {
@@ -53,8 +54,8 @@ public class BorrowedBook {
                 + "INNER JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.id LIKE " + id);
             if(rs.isBeforeFirst()) {
                 rs.first();
-                BorrowedBookEntity entity = new BorrowedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), 
-                rs.getString("publisher"), rs.getDate("date"), rs.getDate("return_date"));
+                BorrowedBookEntity entity = new BorrowedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"),
+                    rs.getInt("isbn"), rs.getString("publisher"), rs.getDate("date"), rs.getDate("return_date"));
                 return entity;
             }
             return null;
@@ -62,5 +63,9 @@ public class BorrowedBook {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    public void updateReturnDate(Date date) {
+        //
     }
 }
