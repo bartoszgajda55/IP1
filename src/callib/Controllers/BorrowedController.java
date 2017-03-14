@@ -93,20 +93,7 @@ public class BorrowedController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.displayData();
-        
-        
-//        return_date.setCellFactory((TableColumn<BorrowedBookEntity, Date> column) -> {
-//            return new TableCell<BorrowedBookEntity, Date>() {
-//                @Override
-//                protected void updateItem(Date item, boolean empty) {
-//                    super.updateItem(item, empty);
-//                    setText(empty ? "" : "some date");
-//                }
-//            };
-//        });
- 
-        
+        this.displayData();      
     }
 
     private void displayData() {

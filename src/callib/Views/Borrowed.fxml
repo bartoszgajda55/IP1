@@ -30,5 +30,6 @@
             <TableColumn fx:id="return_date" prefWidth="100.0" text="Return Date" />
         </columns>
       </TableView>
+      <Label layoutX="522.0" layoutY="542.0" text="Hint: double click on a row to see more options" />
    </children>
 </AnchorPane>
