@@ -29,6 +29,7 @@ public class Main extends Application {
             Scene home_page_scene = new Scene(home_page_parent);
             primaryStage.setScene(home_page_scene);
             primaryStage.show();
+            primaryStage.setResizable(false);
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
