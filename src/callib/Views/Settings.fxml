@@ -8,24 +8,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.SettingsController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.SettingsController">
     <stylesheets>
         <URL value="@settings.css" />
     </stylesheets>
    <children>
-      <Label fx:id="label" layoutX="272.0" layoutY="40.0" text="Settings">
+      <Label fx:id="label" layoutX="329.0" layoutY="47.0" styleClass="title" text="Settings">
          <font>
             <Font size="72.0" />
          </font>
       </Label>
       <Button layoutX="40.0" layoutY="550.0" mnemonicParsing="false" onAction="#back" text="Back" />
       <PasswordField fx:id="current_password" layoutX="200.0" layoutY="200.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="90.0" layoutY="204.0" prefHeight="17.0" prefWidth="110.0" text="Current Password - " />
-      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="90.0" layoutY="254.0" prefHeight="17.0" prefWidth="110.0" text="New Password - " />
-      <Label alignment="CENTER_RIGHT" layoutX="90.0" layoutY="304.0" prefHeight="17.0" prefWidth="110.0" text="Retype Password - " />
+      <Label alignment="CENTER_RIGHT" layoutX="40.0" layoutY="200.0" prefHeight="25.0" prefWidth="143.0" text="Current Password - " />
+      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="40.0" layoutY="250.0" prefHeight="25.0" prefWidth="143.0" text="New Password - " />
+      <Label alignment="CENTER_RIGHT" layoutX="40.0" layoutY="300.0" prefHeight="25.0" prefWidth="143.0" text="Retype Password - " />
       <PasswordField fx:id="new_password" layoutX="200.0" layoutY="250.0" />
       <PasswordField fx:id="retype_password" layoutX="200.0" layoutY="300.0" />
-      <Button layoutX="200.0" layoutY="350.0" mnemonicParsing="false" onAction="#changePassword" text="Change Password" />
+      <Button layoutX="200.0" layoutY="334.0" mnemonicParsing="false" onAction="#changePassword" text="Change Password" />
       <Label fx:id="warning" alignment="CENTER" layoutX="172.0" layoutY="160.0" prefHeight="17.0" prefWidth="200.0" textFill="RED" />
    </children>
 </AnchorPane>

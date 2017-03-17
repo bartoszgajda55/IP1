@@ -1,7 +1,15 @@
-/*
- * Empty Stylesheet file.
- */
+.background {
+	-fx-background-color: #236167;
+}
 
-.mainFxmlClass {
+.button {
+	-fx-background-color: #256F5B;
+}
 
+.label {
+	-fx-font-size: 16px;
+}
+
+.title {
+	-fx-font-size: 40px;
 }

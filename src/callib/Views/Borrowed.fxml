@@ -8,18 +8,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.BorrowedController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.BorrowedController">
     <stylesheets>
         <URL value="@borrowed.css" />
     </stylesheets>
    <children>
-      <Label fx:id="label" layoutX="246.0" layoutY="20.0" text="Borrowed" textAlignment="CENTER">
+      <Label fx:id="label" layoutX="304.0" layoutY="34.0" styleClass="title" text="Borrowed" textAlignment="CENTER">
          <font>
             <Font size="72.0" />
          </font>
       </Label>
       <Button layoutX="40.0" layoutY="550.0" mnemonicParsing="false" onAction="#back" text="Back" />
-      <TableView fx:id="table" layoutX="25.0" layoutY="125.0" onMouseClicked="#clickItem" prefHeight="400.0" prefWidth="750.0">
+      <TableView fx:id="table" layoutX="25.0" layoutY="128.0" onMouseClicked="#clickItem" prefHeight="400.0" prefWidth="750.0" styleClass="table">
         <columns>
             <TableColumn fx:id="title" prefWidth="220.0" text="Title" />
             <TableColumn fx:id="category" text="Category" />
