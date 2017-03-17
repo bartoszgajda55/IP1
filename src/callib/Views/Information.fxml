@@ -9,63 +9,63 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.InformationController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.InformationController">
     <stylesheets>
         <URL value="@information.css" />
     </stylesheets>
    <children>
-      <Label fx:id="label" layoutX="213.0" layoutY="40.0" text="Information">
+      <Label fx:id="label" layoutX="296.0" layoutY="54.0" styleClass="title" stylesheets="@information.css" text="Information">
          <font>
             <Font size="72.0" />
          </font>
       </Label>
       <Button layoutX="40.0" layoutY="550.0" mnemonicParsing="false" onAction="#back" text="Back" />
-      <Label alignment="CENTER_RIGHT" layoutX="180.0" layoutY="160.0" prefHeight="30.0" prefWidth="110.0" text="ID - ">
+      <Label alignment="CENTER_RIGHT" layoutX="180.0" layoutY="190.0" prefHeight="30.0" prefWidth="110.0" text="ID - ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="180.0" layoutY="200.0" prefHeight="30.0" prefWidth="110.0" text="First Name - ">
+      <Label alignment="CENTER_RIGHT" layoutX="180.0" layoutY="230.0" prefHeight="30.0" prefWidth="110.0" text="First Name - ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="180.0" layoutY="240.0" prefHeight="30.0" prefWidth="110.0" text="Last Name - ">
+      <Label alignment="CENTER_RIGHT" layoutX="180.0" layoutY="270.0" prefHeight="30.0" prefWidth="110.0" text="Last Name - ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="180.0" layoutY="320.0" prefHeight="30.0" prefWidth="110.0" text="Course - ">
+      <Label alignment="CENTER_RIGHT" layoutX="180.0" layoutY="350.0" prefHeight="30.0" prefWidth="110.0" text="Course - ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="180.0" layoutY="280.0" prefHeight="30.0" prefWidth="110.0" text="Email - ">
+      <Label alignment="CENTER_RIGHT" layoutX="180.0" layoutY="310.0" prefHeight="30.0" prefWidth="110.0" text="Email - ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="id" layoutX="320.0" layoutY="160.0" prefHeight="30.0" prefWidth="280.0">
+      <Label fx:id="id" layoutX="320.0" layoutY="190.0" prefHeight="30.0" prefWidth="280.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="f_name" layoutX="320.0" layoutY="200.0" prefHeight="30.0" prefWidth="280.0">
+      <Label fx:id="f_name" layoutX="320.0" layoutY="230.0" prefHeight="30.0" prefWidth="280.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="l_name" layoutX="320.0" layoutY="240.0" prefHeight="30.0" prefWidth="280.0">
+      <Label fx:id="l_name" layoutX="320.0" layoutY="270.0" prefHeight="30.0" prefWidth="280.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="email" layoutX="320.0" layoutY="280.0" prefHeight="30.0" prefWidth="280.0">
+      <Label fx:id="email" layoutX="320.0" layoutY="310.0" prefHeight="30.0" prefWidth="280.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="course" layoutX="320.0" layoutY="320.0" prefHeight="30.0" prefWidth="280.0">
+      <Label fx:id="course" layoutX="320.0" layoutY="350.0" prefHeight="30.0" prefWidth="280.0">
          <font>
             <Font size="18.0" />
          </font>

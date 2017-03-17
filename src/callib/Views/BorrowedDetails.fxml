@@ -8,12 +8,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.BorrowedDetailsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.BorrowedDetailsController">
     <stylesheets>
         <URL value="@borroweddetails.css" />
     </stylesheets>
    <children>
-      <Label fx:id="label" layoutX="164.0" layoutY="20.0" text="Borrowed Details">
+      <Label fx:id="label" layoutX="164.0" layoutY="20.0" styleClass="title" text="Borrowed Details">
          <font>
             <Font size="36.0" />
          </font>
@@ -79,17 +79,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="date" contentDisplay="TOP" layoutX="190.0" layoutY="235.0" prefHeight="27.0" prefWidth="300.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
       <Label fx:id="return_date" contentDisplay="TOP" layoutX="190.0" layoutY="262.0" prefHeight="27.0" prefWidth="300.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <Button fx:id="extend" layoutX="500.0" layoutY="263.0" mnemonicParsing="false" onAction="#extendReturnTime" text="Extend" />
-      <Label fx:id="warning" alignment="CENTER" layoutX="200.0" layoutY="333.0" prefHeight="17.0" prefWidth="200.0" />
+      <Label layoutX="190.0" layoutY="240.0" prefHeight="25.0" prefWidth="300.0" />
    </children>
 </AnchorPane>

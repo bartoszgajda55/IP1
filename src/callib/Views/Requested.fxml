@@ -8,18 +8,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.RequestedController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.RequestedController">
     <stylesheets>
         <URL value="@requested.css" />
     </stylesheets>
    <children>
-      <Label fx:id="label" layoutX="232.0" layoutY="14.0" text="Requested">
+      <Label fx:id="label" layoutX="307.0" layoutY="27.0" styleClass="title" text="Requested">
          <font>
             <Font size="72.0" />
          </font>
       </Label>
       <Button layoutX="40.0" layoutY="550.0" mnemonicParsing="false" onAction="#back" text="Back" />
-      <TableView fx:id="table" layoutX="25.0" layoutY="125.0" prefHeight="400.0" prefWidth="750.0">
+      <TableView fx:id="table" layoutX="25.0" layoutY="125.0" prefHeight="400.0" prefWidth="750.0" styleClass="table">
         <columns>
           <TableColumn fx:id="title" prefWidth="220.0" text="Title" />
           <TableColumn fx:id="category" prefWidth="100.0" text="Category" />
