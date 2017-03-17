@@ -79,12 +79,17 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Label fx:id="date" contentDisplay="TOP" layoutX="190.0" layoutY="235.0" prefHeight="27.0" prefWidth="300.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
       <Label fx:id="return_date" contentDisplay="TOP" layoutX="190.0" layoutY="262.0" prefHeight="27.0" prefWidth="300.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <Button fx:id="extend" layoutX="500.0" layoutY="263.0" mnemonicParsing="false" onAction="#extendReturnTime" text="Extend" />
-      <Label layoutX="190.0" layoutY="240.0" prefHeight="25.0" prefWidth="300.0" />
+      <Label fx:id="warning" alignment="CENTER" layoutX="200.0" layoutY="333.0" prefHeight="25.0" prefWidth="300.0" />
    </children>
 </AnchorPane>
