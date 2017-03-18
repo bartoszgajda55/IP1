@@ -15,9 +15,9 @@ import java.util.logging.Logger;
  */
 public class DBConnector {
     
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "admin";
-    private static final String CONN_STRING = "jdbc:mysql://localhost/callib?useUnicode=true&characterEncoding=UTF-8";
+    private static final String USERNAME = "ip1";
+    private static final String PASSWORD = "integrated";
+    private static final String CONN_STRING = "jdbc:mysql://79.137.38.27/callib?useUnicode=true&characterEncoding=UTF-8";
     private Connection conn = null;
     private static DBConnector dbConnector = new DBConnector();
     
