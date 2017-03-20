@@ -76,4 +76,15 @@ public class BorrowedBook {
     public boolean addNewBorrowedBook(int userId, int bookId, String date, String returnDate) {
         return connector.executeInsertStatement("INSERT INTO borrowed_books (user_id, book_id, date, return_date) VALUES ("+userId+","+bookId+",'"+date+"','"+returnDate+"')");
     }
+    
+    public boolean isBookBorrowedAlready(int userId, int bookId) {
+        ResultSet rs = connector.executeSelectStatement("SELECT id FROM borrowed_books WHERE user_id LIKE "+userId+ " AND book_id LIKE "+bookId);
+        try {
+            if(rs.isBeforeFirst())
+                return false;
+        } catch (SQLException ex) {
+            Logger.getLogger(BorrowedBook.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 }

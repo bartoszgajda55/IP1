@@ -64,25 +64,35 @@ public class SearchDetailsController implements Initializable {
     
     @FXML
     private void borrowBook(ActionEvent event) {
-        LocalDate today = LocalDate.now();
-        LocalDate next2Week = today.plus(2, ChronoUnit.WEEKS);
-        
-        borrowed.addNewBorrowedBook(Main.getId(), this.bookId, today.toString(), next2Week.toString());
-        book.updateBookQuantity(this.bookId, -1);
-        
-        quantity.setText(Integer.toString(bookDetails.getQuantity() - 1));
-        warning.setTextFill(Color.web("#00FF00"));
-        warning.setText("Book successfully borrowed!");
-        
-        this.isBorrowOrRequestAllowed();
+        if(borrowed.isBookBorrowedAlready(Main.getId(), this.bookId)) {
+            LocalDate today = LocalDate.now();
+            LocalDate next2Week = today.plus(2, ChronoUnit.WEEKS);
+
+            borrowed.addNewBorrowedBook(Main.getId(), this.bookId, today.toString(), next2Week.toString());
+            book.updateBookQuantity(this.bookId, -1);
+
+            quantity.setText(Integer.toString(bookDetails.getQuantity() - 1));
+            warning.setTextFill(Color.web("#00FF00"));
+            warning.setText("Book successfully borrowed!");
+
+            this.isBorrowOrRequestAllowed();
+        } else {
+            warning.setTextFill(Color.web("#FF0000"));
+            warning.setText("Book borrowed already!");
+        }
     }
     
     @FXML
     private void requestBook(ActionEvent event) {
-        LocalDate today = LocalDate.now();
-        requested.addNewRequestedBook(Main.getId(), this.bookId, today.toString());
-        warning.setTextFill(Color.web("#00FF00"));
-        warning.setText("Book successfully requested!");
+        if(requested.isBookRequestedAlready(Main.getId(), this.bookId)) {
+            LocalDate today = LocalDate.now();
+            requested.addNewRequestedBook(Main.getId(), this.bookId, today.toString());
+            warning.setTextFill(Color.web("#00FF00"));
+            warning.setText("Book successfully requested!");
+        } else {
+            warning.setTextFill(Color.web("#FF0000"));
+            warning.setText("Book requested already!");
+        }
     }
     
     @FXML

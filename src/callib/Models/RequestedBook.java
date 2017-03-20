@@ -49,4 +49,15 @@ public class RequestedBook {
     public boolean addNewRequestedBook(int userId, int bookId, String date) {
         return connector.executeInsertStatement("INSERT INTO requested_books (user_id, book_id, date) VALUES ("+userId+","+bookId+",'"+date+"')");
     }
+    
+    public boolean isBookRequestedAlready(int userId, int bookId) {
+        ResultSet rs = connector.executeSelectStatement("SELECT id FROM requested_books WHERE user_id LIKE "+userId+ " AND book_id LIKE "+bookId);
+        try {
+            if(rs.isBeforeFirst())
+                return false;
+        } catch (SQLException ex) {
+            Logger.getLogger(BorrowedBook.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 }
