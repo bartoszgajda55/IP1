@@ -30,13 +30,13 @@ public class RequestedBook {
     }
     
     public ObservableList<RequestedBookEntity> getAllRequestedBooksList() {
-        ResultSet rs = connector.executeSelectStatement("SELECT requested_books.id, requested_books.date, requested_books.user_id, "
+        ResultSet rs = connector.executeSelectStatement("SELECT requested_books.id, requested_books.date, requested_books.user_id, requested_books.book_id, "
                 + "books.title, books.category, books.author, books.isbn, books.publisher FROM requested_books INNER JOIN "
                 + "books ON requested_books.book_id = books.id WHERE requested_books.user_id LIKE " + Main.getId());
         try {
             ObservableList<RequestedBookEntity> result = FXCollections.observableArrayList();
             while (rs.next()) {
-                result.add(new RequestedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"), 
+                result.add(new RequestedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getInt("book_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"), 
                         rs.getInt("isbn"), rs.getString("publisher"), rs.getDate("date")));
             }
             return result;
@@ -63,17 +63,21 @@ public class RequestedBook {
     
     public RequestedBookEntity getRequestedBookDetails(int id) {
         try {
-            ResultSet rs = connector.executeSelectStatement("SELECT requested_books.id, requested_books.date, requested_books.user_id, "
+            ResultSet rs = connector.executeSelectStatement("SELECT requested_books.id, requested_books.date, requested_books.user_id, requested_books.book_id, "
                 + "books.title, books.category, books.author, books.isbn, books.publisher FROM requested_books INNER JOIN "
                 + "books ON requested_books.book_id = books.id WHERE requested_books.id LIKE " + id);
             if(rs.isBeforeFirst()) {
                 rs.next();
-                return new RequestedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"),
+                return new RequestedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getInt("book_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"),
                     rs.getInt("isbn"), rs.getString("publisher"), rs.getDate("date"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(RequestedBook.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    public boolean deleteBookRequest(int id) {
+        return connector.executeDeleteStatement("DELETE FROM requested_books WHERE id LIKE " + id);
     }
 }

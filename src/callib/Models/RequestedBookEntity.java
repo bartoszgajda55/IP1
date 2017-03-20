@@ -15,6 +15,7 @@ public class RequestedBookEntity {
     
     private int id;
     private int user_id;
+    private int book_id;
     private String title;
     private String category;
     private String author;
@@ -24,9 +25,10 @@ public class RequestedBookEntity {
     
     public RequestedBookEntity() {}
     
-    public RequestedBookEntity(int id, int user_id, String title, String category, String author, int isbn, String publisher, Date date) {
+    public RequestedBookEntity(int id, int user_id, int book_id, String title, String category, String author, int isbn, String publisher, Date date) {
         this.id = id;
         this.user_id = user_id;
+        this.book_id = book_id;
         this.title = title;
         this.category = category;
         this.author = author;
@@ -47,6 +49,13 @@ public class RequestedBookEntity {
      */
     public int getUser_id() {
         return user_id;
+    }
+    
+    /**
+     * @return the book_id
+     */
+    public int getBook_id() {
+        return book_id;
     }
 
     /**

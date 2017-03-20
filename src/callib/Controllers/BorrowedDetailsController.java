@@ -74,8 +74,7 @@ public class BorrowedDetailsController implements Initializable {
     private void returnBook(ActionEvent event) {
         borrowed.deleteBorrowedBook(this.borrowId);
         book.updateBookQuantity(this.bookDetails.getBook_id(), 1);
-        stage = (Stage) label.getScene().getWindow();
-        stage.close();
+        this.close(event);
     }
     
     @FXML
