@@ -19,7 +19,7 @@
          </font>
       </Label>
       <Button layoutX="40.0" layoutY="550.0" mnemonicParsing="false" onAction="#back" text="Back" />
-      <TableView fx:id="table" layoutX="25.0" layoutY="125.0" prefHeight="400.0" prefWidth="750.0" styleClass="table">
+      <TableView fx:id="table" layoutX="25.0" layoutY="125.0" onMouseClicked="#clickItem" prefHeight="400.0" prefWidth="750.0" styleClass="table">
         <columns>
           <TableColumn fx:id="title" prefWidth="220.0" text="Title" />
           <TableColumn fx:id="category" prefWidth="100.0" text="Category" />

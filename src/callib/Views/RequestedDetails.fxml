@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="callib.Controllers.RequestedDetailsController">
+    <stylesheets>
+        <URL value="@requesteddetails.css" />
+    </stylesheets>
+    <children>
+      <Label fx:id="label" layoutX="177.0" layoutY="22.0" styleClass="title" text="Request Details">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="30.0" layoutY="350.0" mnemonicParsing="false" onAction="#close" text="Close" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="21.0" layoutY="100.0" prefHeight="27.0" prefWidth="160.0" text="Title - ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="21.0" layoutY="127.0" prefHeight="27.0" prefWidth="160.0" text="Category - ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="21.0" layoutY="154.0" prefHeight="27.0" prefWidth="160.0" text="Author - ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="21.0" layoutY="181.0" prefHeight="27.0" prefWidth="160.0" text="ISBN - ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="21.0" layoutY="208.0" prefHeight="27.0" prefWidth="160.0" text="Publisher - ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="21.0" layoutY="235.0" prefHeight="27.0" prefWidth="160.0" text="Request Date - ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="title" contentDisplay="TOP" layoutX="190.0" layoutY="100.0" prefHeight="27.0" prefWidth="300.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="category" contentDisplay="TOP" layoutX="190.0" layoutY="127.0" prefHeight="27.0" prefWidth="300.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="author" contentDisplay="TOP" layoutX="190.0" layoutY="154.0" prefHeight="27.0" prefWidth="300.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="isbn" contentDisplay="TOP" layoutX="190.0" layoutY="181.0" prefHeight="27.0" prefWidth="300.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="publisher" contentDisplay="TOP" layoutX="190.0" layoutY="208.0" prefHeight="27.0" prefWidth="300.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="date" contentDisplay="TOP" layoutX="190.0" layoutY="235.0" prefHeight="27.0" prefWidth="300.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="borrow" layoutX="500.0" layoutY="263.0" mnemonicParsing="false" onAction="#borrowBook" text="Borrow" />
+      <Label fx:id="warning" alignment="CENTER" layoutX="181.0" layoutY="338.0" prefHeight="25.0" prefWidth="300.0" />
+      <Button fx:id="cancel" layoutX="501.0" layoutY="305.0" mnemonicParsing="false" onAction="#cancelRequest" text="Cancel" />
+   </children>
+</AnchorPane>

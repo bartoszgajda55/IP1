@@ -22,6 +22,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -36,7 +39,7 @@ public class RequestedController implements Initializable {
     private Parent root;
     
     @FXML
-    private TableView table;
+    private TableView<RequestedBookEntity> table;
     @FXML
     private TableColumn title;
     @FXML
@@ -49,9 +52,9 @@ public class RequestedController implements Initializable {
     private TableColumn publisher;
     @FXML
     private TableColumn date;
-    
     @FXML
     private Label label;
+    
     @FXML
     private void back(ActionEvent event) throws IOException {
         stage = (Stage) label.getScene().getWindow();
@@ -60,11 +63,36 @@ public class RequestedController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    
+    @FXML
+    private void clickItem(MouseEvent event) throws IOException {
+        if (event.getClickCount() == 2) {
+            stage = (Stage) label.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/callib/Views/RequestedDetails.fxml"));
+            Stage modal  = new Stage();
+            modal.initModality(Modality.APPLICATION_MODAL);
+            modal.setScene(
+                    new Scene((Pane) loader.load())
+            );
+            modal.setX(stage.getX() + 50);
+            modal.setY(stage.getY() + 50);
+            RequestedDetailsController controller = (RequestedDetailsController) loader.getController();
+            controller.initData(table.getSelectionModel().getSelectedItem().getId());
+            
+            modal.showAndWait();
+            this.displayData();
+        }
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.displayData();
+    }
+    
+    private void displayData() {
         ObservableList<RequestedBookEntity> data = requested.getAllRequestedBooksList();
         
         title.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -75,6 +103,5 @@ public class RequestedController implements Initializable {
         date.setCellValueFactory(new PropertyValueFactory<>("date"));
  
         table.setItems(data);
-    }    
-    
+    }  
 }

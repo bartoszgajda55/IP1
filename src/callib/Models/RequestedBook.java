@@ -60,4 +60,20 @@ public class RequestedBook {
         }
         return false;
     }
+    
+    public RequestedBookEntity getRequestedBookDetails(int id) {
+        try {
+            ResultSet rs = connector.executeSelectStatement("SELECT requested_books.id, requested_books.date, requested_books.user_id, "
+                + "books.title, books.category, books.author, books.isbn, books.publisher FROM requested_books INNER JOIN "
+                + "books ON requested_books.book_id = books.id WHERE requested_books.id LIKE " + id);
+            if(rs.isBeforeFirst()) {
+                rs.next();
+                return new RequestedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"),
+                    rs.getInt("isbn"), rs.getString("publisher"), rs.getDate("date"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RequestedBook.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }
