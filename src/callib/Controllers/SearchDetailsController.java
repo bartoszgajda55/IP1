@@ -8,6 +8,7 @@ package callib.Controllers;
 import callib.Models.Book;
 import callib.Models.BookEntity;
 import callib.Models.BorrowedBook;
+import callib.Models.RequestedBook;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -29,8 +30,11 @@ public class SearchDetailsController implements Initializable {
 
     private Stage stage;
     private int bookId;
+    
     private Book book = Book.getInstance();
     private BorrowedBook borrowed = BorrowedBook.getInstance();
+    private RequestedBook requested = RequestedBook.getInstance();
+    
     private BookEntity bookDetails = null;
     
     @FXML
@@ -75,7 +79,10 @@ public class SearchDetailsController implements Initializable {
     
     @FXML
     private void requestBook(ActionEvent event) {
-        System.out.println("request book");
+        LocalDate today = LocalDate.now();
+        requested.addNewRequestedBook(Main.getId(), this.bookId, today.toString());
+        warning.setTextFill(Color.web("#00FF00"));
+        warning.setText("Book successfully requested!");
     }
     
     @FXML

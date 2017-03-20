@@ -45,4 +45,8 @@ public class RequestedBook {
         }
         return null;
     }
+    
+    public boolean addNewRequestedBook(int userId, int bookId, String date) {
+        return connector.executeInsertStatement("INSERT INTO requested_books (user_id, book_id, date) VALUES ("+userId+","+bookId+",'"+date+"')");
+    }
 }
