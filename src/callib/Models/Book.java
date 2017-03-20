@@ -43,6 +43,18 @@ public class Book {
         return null;     
     }
     
+    public BookEntity getBookDetails(int bookId) {
+        ResultSet rs = connector.executeSelectStatement("SELECT * FROM books WHERE id LIKE " + bookId);
+        try {
+            rs.first();
+            return new BookEntity(rs.getInt("id"), rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), rs.getString("publisher")
+                    , rs.getDate("pub_date"), rs.getInt("pages"), rs.getInt("quantity"));
+        } catch (SQLException ex) {
+            Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     public ObservableList<BookEntity> getFilteredBooksList(String searchPhrase, String column) {
         ResultSet rs = connector.executeSelectStatement("SELECT * FROM books WHERE books." + column + " COLLATE UTF8_GENERAL_CI LIKE '%" + searchPhrase + "%'");
         try {

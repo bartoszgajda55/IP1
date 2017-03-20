@@ -26,6 +26,9 @@ import javafx.stage.Stage;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 
 /**
  * FXML Controller class
@@ -61,7 +64,7 @@ public class SearchController implements Initializable {
     private ComboBox search_combo;
     
     @FXML
-    private TableView table;    
+    private TableView<BookEntity> table;    
     @FXML
     private Label label;
     
@@ -78,11 +81,35 @@ public class SearchController implements Initializable {
     private void search(ActionEvent event) {
         table.setItems(book.getFilteredBooksList(search_field.getText(), (String) search_combo.getValue()));
     }
+    
+    @FXML
+    private void clickItem(MouseEvent event) throws IOException {
+        if (event.getClickCount() == 2) {
+            stage = (Stage) label.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/callib/Views/SearchDetails.fxml"));
+            Stage modal  = new Stage();
+            modal.initModality(Modality.APPLICATION_MODAL);
+            modal.setScene(
+                    new Scene((Pane) loader.load())
+            );
+            modal.setX(stage.getX() + 50);
+            modal.setY(stage.getY() + 50);
+            SearchDetailsController controller = (SearchDetailsController) loader.getController();
+            controller.initData(table.getSelectionModel().getSelectedItem().getId());
+            
+            modal.showAndWait();
+            this.displayData();
+        }
+    }
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.displayData();
+    }
+    
+    private void displayData() {
         ObservableList<BookEntity> data = book.getAllBooksList();
         
         title.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -99,6 +126,5 @@ public class SearchController implements Initializable {
         ObservableList<String> options = FXCollections.observableArrayList("Title", "Category", "Author", "Publisher");
         search_combo.setItems(options);
         search_combo.getSelectionModel().selectFirst();
-    }    
-    
+    }
 }
