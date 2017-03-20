@@ -72,4 +72,8 @@ public class BorrowedBook {
     public boolean deleteBorrowedBook(int id) {
         return connector.executeDeleteStatement("DELETE FROM borrowed_books WHERE id LIKE " + id);
     }
+    
+    public boolean addNewBorrowedBook(int userId, int bookId, String date, String returnDate) {
+        return connector.executeInsertStatement("INSERT INTO borrowed_books (user_id, book_id, date, return_date) VALUES ("+userId+","+bookId+",'"+date+"','"+returnDate+"')");
+    }
 }

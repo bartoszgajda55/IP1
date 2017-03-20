@@ -7,13 +7,17 @@ package callib.Controllers;
 
 import callib.Models.Book;
 import callib.Models.BookEntity;
+import callib.Models.BorrowedBook;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -26,6 +30,7 @@ public class SearchDetailsController implements Initializable {
     private Stage stage;
     private int bookId;
     private Book book = Book.getInstance();
+    private BorrowedBook borrowed = BorrowedBook.getInstance();
     private BookEntity bookDetails = null;
     
     @FXML
@@ -55,7 +60,17 @@ public class SearchDetailsController implements Initializable {
     
     @FXML
     private void borrowBook(ActionEvent event) {
-        System.out.println("borrow book");
+        LocalDate today = LocalDate.now();
+        LocalDate next2Week = today.plus(2, ChronoUnit.WEEKS);
+        
+        borrowed.addNewBorrowedBook(Main.getId(), this.bookId, today.toString(), next2Week.toString());
+        book.updateBookQuantity(this.bookId, -1);
+        
+        quantity.setText(Integer.toString(bookDetails.getQuantity() - 1));
+        warning.setTextFill(Color.web("#00FF00"));
+        warning.setText("Book successfully borrowed!");
+        
+        this.isBorrowOrRequestAllowed();
     }
     
     @FXML
@@ -80,14 +95,17 @@ public class SearchDetailsController implements Initializable {
     public void initData(int id) {
         this.bookId = id;
         this.displayData();
-        this.isBorrowAllowed();
+        this.isBorrowOrRequestAllowed();
     }
     
-    private void isBorrowAllowed() {
+    private void isBorrowOrRequestAllowed() {
         if(bookDetails.getQuantity() > 0)
             request.setDisable(true);
-        else
+        else {
             borrow.setDisable(true);
+            warning.setTextFill(Color.web("#FF0000"));
+            warning.setText("Book not available!");
+        }
     }
     
     private void displayData() {
