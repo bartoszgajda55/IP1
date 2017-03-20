@@ -57,4 +57,21 @@ public class Book {
         }
         return null;
     }
+    
+    public boolean updateBookQuantity(int bookId, int quantity) {
+        return connector.executeUpdateStatement("UPDATE books SET quantity = " + (this.getBookQuantity(bookId) + quantity) + " WHERE id LIKE " + bookId);
+    }
+    
+    public int getBookQuantity(int bookId) {
+        ResultSet rs = connector.executeSelectStatement("SELECT quantity FROM books WHERE id LIKE " + bookId);
+        try {
+            if(rs.isBeforeFirst()) {
+                rs.first();
+                return rs.getInt("quantity");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
 }

@@ -32,12 +32,12 @@ public class BorrowedBook {
     
     public ObservableList<BorrowedBookEntity> getAllBorrowedBooksList() {
         ResultSet rs = connector.executeSelectStatement("SELECT borrowed_books.id, borrowed_books.date, borrowed_books.return_date, "
-                + "borrowed_books.user_id, books.title, books.category, books.author, books.isbn, books.publisher FROM borrowed_books "
+                + "borrowed_books.user_id, borrowed_books.book_id, books.title, books.category, books.author, books.isbn, books.publisher FROM borrowed_books "
                 + "INNER JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.user_id LIKE " + Main.getId());
         try {
             ObservableList<BorrowedBookEntity> result = FXCollections.observableArrayList();
             while (rs.next()) {
-                result.add(new BorrowedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), 
+                result.add(new BorrowedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getInt("book_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), 
                     rs.getString("publisher"), rs.getDate("date"), rs.getDate("return_date")));
             }
             return result;
@@ -50,11 +50,11 @@ public class BorrowedBook {
     public BorrowedBookEntity getBorrowedBookDetails(int id) {
         try {
             ResultSet rs = connector.executeSelectStatement("SELECT borrowed_books.id, borrowed_books.date, borrowed_books.return_date, "
-                + "borrowed_books.user_id, books.title, books.category, books.author, books.isbn, books.publisher FROM borrowed_books "
+                + "borrowed_books.user_id, borrowed_books.book_id, books.title, books.category, books.author, books.isbn, books.publisher FROM borrowed_books "
                 + "INNER JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.id LIKE " + id);
             if(rs.isBeforeFirst()) {
                 rs.first();
-                BorrowedBookEntity entity = new BorrowedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"),
+                BorrowedBookEntity entity = new BorrowedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getInt("book_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"),
                     rs.getInt("isbn"), rs.getString("publisher"), rs.getDate("date"), rs.getDate("return_date"));
                 return entity;
             }
@@ -67,5 +67,9 @@ public class BorrowedBook {
     
     public boolean updateReturnDate(int id, String date) {
         return connector.executeUpdateStatement("UPDATE borrowed_books SET return_date = '" + date + "' WHERE id LIKE " + id);
+    }
+    
+    public boolean deleteBorrowedBook(int id) {
+        return connector.executeDeleteStatement("DELETE FROM borrowed_books WHERE id LIKE " + id);
     }
 }

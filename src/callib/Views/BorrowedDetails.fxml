@@ -91,5 +91,6 @@
       </Label>
       <Button fx:id="extend" layoutX="500.0" layoutY="263.0" mnemonicParsing="false" onAction="#extendReturnTime" text="Extend" />
       <Label fx:id="warning" alignment="CENTER" layoutX="200.0" layoutY="333.0" prefHeight="25.0" prefWidth="300.0" />
+      <Button layoutX="500.0" layoutY="298.0" mnemonicParsing="false" onAction="#returnBook" text="Return" />
    </children>
 </AnchorPane>

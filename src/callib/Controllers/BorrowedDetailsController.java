@@ -5,6 +5,7 @@
  */
 package callib.Controllers;
 
+import callib.Models.Book;
 import callib.Models.BorrowedBook;
 import callib.Models.BorrowedBookEntity;
 import java.net.URL;
@@ -28,8 +29,9 @@ public class BorrowedDetailsController implements Initializable {
 
     
     private Stage stage;
-    private int borrowkId;
+    private int borrowId;
     private BorrowedBook borrowed = BorrowedBook.getInstance();
+    private Book book = Book.getInstance();
     private BorrowedBookEntity bookDetails = null;
     
     
@@ -69,6 +71,14 @@ public class BorrowedDetailsController implements Initializable {
     }
     
     @FXML
+    private void returnBook(ActionEvent event) {
+        borrowed.deleteBorrowedBook(this.borrowId);
+        book.updateBookQuantity(this.bookDetails.getBook_id(), 1);
+        stage = (Stage) label.getScene().getWindow();
+        stage.close();
+    }
+    
+    @FXML
     private void close(ActionEvent event) {
         stage = (Stage) label.getScene().getWindow();
         stage.close();
@@ -82,13 +92,13 @@ public class BorrowedDetailsController implements Initializable {
     }
 
     public void initData(int id) {
-        this.borrowkId = id;
+        this.borrowId = id;
         this.displayData();
         this.isReturnExtensionAllowed();
     }
     
     private void displayData() {
-        bookDetails = borrowed.getBorrowedBookDetails(this.borrowkId);
+        bookDetails = borrowed.getBorrowedBookDetails(this.borrowId);
         title.setText(bookDetails.getTitle());
         category.setText(bookDetails.getCategory());
         author.setText(bookDetails.getAuthor());
