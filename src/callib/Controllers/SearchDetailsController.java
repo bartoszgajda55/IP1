@@ -64,7 +64,7 @@ public class SearchDetailsController implements Initializable {
     
     @FXML
     private void borrowBook(ActionEvent event) {
-        if(borrowed.isBookBorrowedAlready(Main.getId(), this.bookId)) {
+        if(!borrowed.isBookBorrowedAlready(Main.getId(), this.bookId)) {
             LocalDate today = LocalDate.now();
             LocalDate next2Week = today.plus(2, ChronoUnit.WEEKS);
 
@@ -84,7 +84,7 @@ public class SearchDetailsController implements Initializable {
     
     @FXML
     private void requestBook(ActionEvent event) {
-        if(requested.isBookRequestedAlready(Main.getId(), this.bookId)) {
+        if(!requested.isBookRequestedAlready(Main.getId(), this.bookId)) {
             LocalDate today = LocalDate.now();
             requested.addNewRequestedBook(Main.getId(), this.bookId, today.toString());
             warning.setTextFill(Color.web("#00FF00"));

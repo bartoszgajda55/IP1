@@ -54,7 +54,7 @@ public class RequestedBook {
         ResultSet rs = connector.executeSelectStatement("SELECT id FROM requested_books WHERE user_id LIKE "+userId+ " AND book_id LIKE "+bookId);
         try {
             if(rs.isBeforeFirst())
-                return false;
+                return true;
         } catch (SQLException ex) {
             Logger.getLogger(BorrowedBook.class.getName()).log(Level.SEVERE, null, ex);
         }
