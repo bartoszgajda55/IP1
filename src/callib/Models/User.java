@@ -82,4 +82,21 @@ public class User {
         }
         return connector.executeUpdateStatement("UPDATE users SET password = '" + newPassword + "' WHERE id LIKE " + Main.getId());
     }
+    
+    public boolean updateUserBalance(int userId, double balance) {
+        return connector.executeUpdateStatement("UPDATE users SET balance = " + (this.getUserBalance(userId) + balance) + " WHERE id LIKE " + userId);
+    }
+    
+    public double getUserBalance(int userId) {
+        ResultSet rs = connector.executeSelectStatement("SELECT balance FROM users WHERE id LIKE " + userId);
+        try {
+            if(rs.isBeforeFirst()) {
+                rs.first();
+                return rs.getDouble("balance");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
 }

@@ -8,6 +8,7 @@ package callib.Controllers;
 import callib.Models.Book;
 import callib.Models.BorrowedBook;
 import callib.Models.BorrowedBookEntity;
+import callib.Models.User;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -32,6 +33,7 @@ public class BorrowedDetailsController implements Initializable {
     private int borrowId;
     private BorrowedBook borrowed = BorrowedBook.getInstance();
     private Book book = Book.getInstance();
+    private User user = User.getInstance();
     private BorrowedBookEntity bookDetails = null;
     
     
@@ -115,6 +117,8 @@ public class BorrowedDetailsController implements Initializable {
             extend.setDisable(true);
             warning.setTextFill(Color.web("#FF0000"));
             warning.setText("Return date has passed!");
+            user.updateUserBalance(bookDetails.getUser_id(), -2.75);
+            
         }
         else if(bookDetails.getReturn_date().toLocalDate().isAfter(next2Week)) {
             extend.setDisable(true);
