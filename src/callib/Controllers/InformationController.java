@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import callib.Models.User;
+import callib.Models.UserEntity;
 import java.util.ArrayList;
 
 /**
@@ -42,6 +43,8 @@ public class InformationController implements Initializable {
     private Label email;
     @FXML
     private Label course;
+    @FXML
+    private Label balance;
     
     @FXML
     private void back(ActionEvent event) throws IOException {
@@ -56,11 +59,12 @@ public class InformationController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ArrayList<String> alist = user.getUserInfo(Main.getId());
-        id.setText(alist.get(0));
-        f_name.setText(alist.get(1));
-        l_name.setText(alist.get(2));
-        email.setText(alist.get(3));
-        course.setText(alist.get(4));
+        UserEntity userInfo = user.getUserInfo(Main.getId());
+        id.setText(Integer.toString(userInfo.getId()));
+        f_name.setText(userInfo.getFirst_name());
+        l_name.setText(userInfo.getLast_name());
+        email.setText(userInfo.getEmail());
+        course.setText(userInfo.getCourse());
+        balance.setText(Double.toString(userInfo.getBalance()));
     }        
 }

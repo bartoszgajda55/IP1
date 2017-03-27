@@ -56,18 +56,13 @@ public class User {
         
     }
     
-    public ArrayList<String> getUserInfo(int id) {
+    public UserEntity getUserInfo(int id) {
         try {
             ResultSet rs = connector.executeSelectStatement("SELECT * FROM users WHERE users.id LIKE " + id);
             if(rs.isBeforeFirst()) {
                 rs.first();
-                ArrayList alist = new ArrayList();
-                alist.add(Integer.toString(rs.getInt("id")));
-                alist.add(rs.getString("first_name"));
-                alist.add(rs.getString("last_name"));
-                alist.add(rs.getString("email"));
-                alist.add(rs.getString("course"));
-                return alist;
+                return new UserEntity(rs.getInt("id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"), rs.getString("password"),
+                        rs.getString("course"), rs.getDouble("balance"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
