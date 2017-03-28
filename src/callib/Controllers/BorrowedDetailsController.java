@@ -117,7 +117,10 @@ public class BorrowedDetailsController implements Initializable {
             extend.setDisable(true);
             warning.setTextFill(Color.web("#FF0000"));
             warning.setText("Return date has passed!");
-            user.updateUserBalance(bookDetails.getUser_id(), -2.75);
+            if(bookDetails.getFee_applied() == 0) {
+                user.updateUserBalance(bookDetails.getUser_id(), -2.75);
+                borrowed.updateFeeAppliedToTrue(bookDetails.getId());
+            }
             
         }
         else if(bookDetails.getReturn_date().toLocalDate().isAfter(next2Week)) {

@@ -31,14 +31,14 @@ public class BorrowedBook {
     }
     
     public ObservableList<BorrowedBookEntity> getAllBorrowedBooksList() {
-        ResultSet rs = connector.executeSelectStatement("SELECT borrowed_books.id, borrowed_books.date, borrowed_books.return_date, "
+        ResultSet rs = connector.executeSelectStatement("SELECT borrowed_books.id, borrowed_books.date, borrowed_books.return_date, borrowed_books.fee_applied, "
                 + "borrowed_books.user_id, borrowed_books.book_id, books.title, books.category, books.author, books.isbn, books.publisher FROM borrowed_books "
                 + "INNER JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.user_id LIKE " + Main.getId());
         try {
             ObservableList<BorrowedBookEntity> result = FXCollections.observableArrayList();
             while (rs.next()) {
                 result.add(new BorrowedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getInt("book_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"), rs.getInt("isbn"), 
-                    rs.getString("publisher"), rs.getDate("date"), rs.getDate("return_date")));
+                    rs.getString("publisher"), rs.getDate("date"), rs.getDate("return_date"), rs.getInt("fee_applied")));
             }
             return result;
         } catch (SQLException ex) {
@@ -49,13 +49,13 @@ public class BorrowedBook {
     
     public BorrowedBookEntity getBorrowedBookDetails(int id) {
         try {
-            ResultSet rs = connector.executeSelectStatement("SELECT borrowed_books.id, borrowed_books.date, borrowed_books.return_date, "
+            ResultSet rs = connector.executeSelectStatement("SELECT borrowed_books.id, borrowed_books.date, borrowed_books.return_date, borrowed_books.fee_applied, "
                 + "borrowed_books.user_id, borrowed_books.book_id, books.title, books.category, books.author, books.isbn, books.publisher FROM borrowed_books "
                 + "INNER JOIN books ON borrowed_books.book_id = books.id WHERE borrowed_books.id LIKE " + id);
             if(rs.isBeforeFirst()) {
                 rs.first();
                 BorrowedBookEntity entity = new BorrowedBookEntity(rs.getInt("id"), rs.getInt("user_id"), rs.getInt("book_id"), rs.getString("title"), rs.getString("category"), rs.getString("author"),
-                    rs.getInt("isbn"), rs.getString("publisher"), rs.getDate("date"), rs.getDate("return_date"));
+                    rs.getInt("isbn"), rs.getString("publisher"), rs.getDate("date"), rs.getDate("return_date"), rs.getInt("fee_applied"));
                 return entity;
             }
             return null;
@@ -86,5 +86,9 @@ public class BorrowedBook {
             Logger.getLogger(BorrowedBook.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+    
+    public boolean updateFeeAppliedToTrue(int borrowId) {
+        return connector.executeUpdateStatement("UPDATE borrowed_books SET fee_applied = 1 WHERE id LIKE " + borrowId);
     }
 }

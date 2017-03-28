@@ -23,10 +23,11 @@ public class BorrowedBookEntity {
     private String publisher;
     private Date date;
     private Date return_date;
+    private int fee_applied;
     
     public BorrowedBookEntity() {}
     
-    public BorrowedBookEntity(int id, int user_id, int book_id, String title, String category, String author, int isbn, String publisher, Date date, Date return_date) {
+    public BorrowedBookEntity(int id, int user_id, int book_id, String title, String category, String author, int isbn, String publisher, Date date, Date return_date, int fee_applied) {
         this.id = id;
         this.user_id = user_id;
         this.book_id = book_id;
@@ -37,6 +38,7 @@ public class BorrowedBookEntity {
         this.publisher = publisher;
         this.date = date;
         this.return_date = return_date;
+        this.fee_applied = fee_applied;
     }
 
     /**
@@ -107,6 +109,13 @@ public class BorrowedBookEntity {
      */
     public Date getReturn_date() {
         return return_date;
+    }
+    
+    /**
+     * @return the fee_applied
+     */
+    public int getFee_applied() {
+        return fee_applied;
     }
     
 }
