@@ -8,12 +8,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.SearchDetailsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.SearchDetailsController">
     <stylesheets>
         <URL value="@searchdetails.css" />
     </stylesheets>
     <children>
-      <Label fx:id="label" layoutX="189.0" layoutY="21.0" styleClass="title" text="Search Details">
+      <Label fx:id="label" layoutX="126.0" layoutY="14.0" styleClass="title" text="Search Details">
          <font>
             <Font size="36.0" />
          </font>

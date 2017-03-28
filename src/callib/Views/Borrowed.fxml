@@ -13,7 +13,7 @@
         <URL value="@borrowed.css" />
     </stylesheets>
    <children>
-      <Label fx:id="label" layoutX="304.0" layoutY="34.0" styleClass="title" text="Borrowed" textAlignment="CENTER">
+      <Label fx:id="label" layoutX="273.0" layoutY="14.0" styleClass="title" text="Borrowed" textAlignment="CENTER">
          <font>
             <Font size="72.0" />
          </font>
@@ -30,6 +30,6 @@
             <TableColumn fx:id="return_date" prefWidth="100.0" text="Return Date" />
         </columns>
       </TableView>
-      <Label layoutX="522.0" layoutY="542.0" text="Hint: double click on a row to see more options" />
+      <Label layoutX="440.0" layoutY="550.0" text="Hint: double click on a row to see more options" />
    </children>
 </AnchorPane>

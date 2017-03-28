@@ -7,23 +7,29 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.LoginController">
     <stylesheets>
         <URL value="@login.css" />
     </stylesheets>
     <children>
-      <Button layoutX="236.0" layoutY="256.0" mnemonicParsing="false" onAction="#login" text="Login" />
-      <Button layoutX="303.0" layoutY="256.0" mnemonicParsing="false" onAction="#register" text="Register" />
-      <TextField fx:id="emailField" layoutX="226.0" layoutY="175.0" />
-      <Label layoutX="138.0" layoutY="73.0" styleClass="title" text="Caledonian Library">
+      <Button layoutX="229.0" layoutY="304.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="46.0" text="Login" />
+      <Button layoutX="303.0" layoutY="304.0" mnemonicParsing="false" onAction="#register" prefHeight="25.0" prefWidth="60.0" text="Register" />
+      <TextField fx:id="emailField" layoutX="229.0" layoutY="217.0" />
+      <Label layoutX="69.0" layoutY="132.0" styleClass="title" text="Caledonian Library">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <Label layoutX="179.0" layoutY="175.0" text="Email" textAlignment="RIGHT" />
-      <Label layoutX="150.0" layoutY="217.0" styleClass="lable" text="Password" textAlignment="RIGHT" />
-      <PasswordField fx:id="passwordField" layoutX="227.0" layoutY="217.0" />
+      <Label layoutX="180.0" layoutY="217.0" text="Email" textAlignment="RIGHT" />
+      <Label layoutX="151.0" layoutY="257.0" styleClass="lable" text="Password" textAlignment="RIGHT" />
+      <PasswordField fx:id="passwordField" layoutX="229.0" layoutY="257.0" />
+      <ImageView fitHeight="130" fitWidth="121" layoutX="240.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image backgroundLoading="true" url="@logo.png" />
+        </image>
+      </ImageView>
       <Label fx:id="messageLabel" layoutX="184.0" layoutY="353.0" prefHeight="25.0" prefWidth="219.0" />
    </children>
 </AnchorPane>
