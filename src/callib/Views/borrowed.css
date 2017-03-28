@@ -1,11 +1,11 @@
 
 
 .background {
-	-fx-background-color: #236167;
+	-fx-background-color: #718A8F;
 }
 
 .button {
-	-fx-background-color: #256F5B;
+	-fx-background-color: #B9CACD;
 }
 
 .label {
@@ -13,7 +13,8 @@
 }
 
 .title {
-	-fx-font-size: 40px;
+	-fx-font-size: 60px;
+	-fx-font-family: "Times New Roman", Georgia, Serif;
 }
 
 .table {

@@ -1,7 +1,17 @@
-/*
- * Empty Stylesheet file.
- */
 
-.mainFxmlClass {
+.background {
+	-fx-background-color: #718A8F;
+}
 
+.button {
+	-fx-background-color: #B9CACD;
+}
+
+.label {
+	-fx-font-size: 16px;
+}
+
+.title {
+	-fx-font-size: 60px;
+	-fx-font-family: "Times New Roman", Georgia, Serif;
 }

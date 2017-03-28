@@ -8,12 +8,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="callib.Controllers.RequestedDetailsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="callib.Controllers.RequestedDetailsController">
     <stylesheets>
         <URL value="@requesteddetails.css" />
     </stylesheets>
     <children>
-      <Label fx:id="label" layoutX="177.0" layoutY="22.0" styleClass="title" text="Request Details">
+      <Label fx:id="label" layoutX="142.0" layoutY="14.0" styleClass="title" text="Request Details">
          <font>
             <Font size="36.0" />
          </font>

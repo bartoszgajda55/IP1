@@ -13,7 +13,7 @@
         <URL value="@settings.css" />
     </stylesheets>
    <children>
-      <Label fx:id="label" layoutX="329.0" layoutY="47.0" styleClass="title" text="Settings">
+      <Label fx:id="label" layoutX="303.0" layoutY="14.0" styleClass="title" text="Settings">
          <font>
             <Font size="72.0" />
          </font>
@@ -25,7 +25,7 @@
       <Label alignment="CENTER_RIGHT" layoutX="40.0" layoutY="300.0" prefHeight="25.0" prefWidth="143.0" text="Retype Password - " />
       <PasswordField fx:id="new_password" layoutX="200.0" layoutY="250.0" />
       <PasswordField fx:id="retype_password" layoutX="200.0" layoutY="300.0" />
-      <Button layoutX="200.0" layoutY="334.0" mnemonicParsing="false" onAction="#changePassword" text="Change Password" />
+      <Button layoutX="200.0" layoutY="342.0" mnemonicParsing="false" onAction="#changePassword" text="Change Password" />
       <Label fx:id="warning" alignment="CENTER" layoutX="172.0" layoutY="160.0" prefHeight="17.0" prefWidth="200.0" textFill="RED" />
    </children>
 </AnchorPane>

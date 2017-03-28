@@ -13,7 +13,7 @@
         <URL value="@register.css" />
     </stylesheets>
    <children>
-      <Label fx:id="label" layoutX="229.0" layoutY="23.0" styleClass="title" text="Register">
+      <Label fx:id="label" layoutX="200.0" layoutY="14.0" styleClass="title" text="Register">
          <font>
             <Font size="36.0" />
          </font>
