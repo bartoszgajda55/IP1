@@ -41,7 +41,8 @@ public class User {
     }
     
     public boolean addUser(String first_name, String last_name, String email, String password, String course) {
-        return connector.executeInsertStatement("INSERT INTO users (first_name, last_name, email, password, course) VALUES ('"+first_name+"','"+last_name+"','"+email+"','"+password+"','"+course+"')");
+        return connector.executeInsertStatement("INSERT INTO users (first_name, last_name, email, password, course, balance) VALUES "
+                + "('"+first_name+"','"+last_name+"','"+email+"','"+password+"','"+course+"',"+0.0+")");
     }
     
     public void setUserId(String email) {

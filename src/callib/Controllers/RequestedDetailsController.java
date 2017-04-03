@@ -114,6 +114,8 @@ public class RequestedDetailsController implements Initializable {
         if(book.getBookQuantity(requestedDetails.getBook_id()) > 0) {
             warning.setTextFill(Color.web("#00FF00"));
             warning.setText("Book is available!");
+        } else {
+            borrow.setDisable(true);
         }
     }
 }

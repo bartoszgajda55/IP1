@@ -74,7 +74,7 @@ public class BorrowedBook {
     }
     
     public boolean addNewBorrowedBook(int userId, int bookId, String date, String returnDate) {
-        return connector.executeInsertStatement("INSERT INTO borrowed_books (user_id, book_id, date, return_date) VALUES ("+userId+","+bookId+",'"+date+"','"+returnDate+"')");
+        return connector.executeInsertStatement("INSERT INTO borrowed_books (user_id, book_id, date, return_date, fee_applied) VALUES ("+userId+","+bookId+",'"+date+"','"+returnDate+"', "+0+")");
     }
     
     public boolean isBookBorrowedAlready(int userId, int bookId) {
